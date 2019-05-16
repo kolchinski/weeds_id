@@ -49,6 +49,8 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
             running_loss = 0.0
             running_corrects = 0
 
+            confusion_matrix = np.zeros((num_classes, num_classes))
+
             # Iterate over data.
             for inputs, labels in dataloaders[phase]:
                 inputs = inputs.to(device)
@@ -74,11 +76,19 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
                 # statistics
                 running_loss += loss.item() * inputs.size(0)
                 running_corrects += torch.sum(preds == labels.data)
+                for label, pred in zip(labels.data, preds):
+                    confusion_matrix[label, pred] += 1
 
             epoch_loss = running_loss / len(dataloaders[phase].dataset)
             epoch_acc = running_corrects.double() / len(dataloaders[phase].dataset)
 
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
+
+            for i in range(num_classes):
+                print('Class {} ({}): Accuracy {}/{} ({}%)'.format(
+                    i, dataloaders[phase].dataset.dataset.classes[i], confusion_matrix[i,i],
+                    confusion_matrix[i].sum(), 100.*confusion_matrix[i,i]/confusion_matrix[i].sum()
+                ))
 
             # deep copy the model
             if phase == 'val' and epoch_acc > best_acc:
@@ -119,22 +129,22 @@ data_transforms = {
 image_datasets = {x: datasets.ImageFolder(
     os.path.join(data_dir, x), data_transforms[x]) for x in ['train', 'val']}
 
+if tiny_run:
+    train_indices = np.random.choice(len(image_datasets['train']), 40, replace=False)
+    val_indices = np.random.choice(len(image_datasets['val']), 40, replace=False)
+else:
+    train_indices = range(len(image_datasets['train']))
+    val_indices = range(len(image_datasets['val']))
 
-tiny_train_indices = np.random.choice(len(image_datasets['train']), 4, replace=False)
-tiny_val_indices = np.random.choice(len(image_datasets['val']), 16, replace=False)
-
-tiny_train = Subset(image_datasets['train'], tiny_train_indices)
-tiny_val = Subset(image_datasets['val'], tiny_val_indices)
-tiny_train_loader= torch.utils.data.DataLoader(tiny_train, batch_size=batch_size)
-tiny_val_loader= torch.utils.data.DataLoader(tiny_val, batch_size=batch_size)
-tiny_dataloaders = {'train' : tiny_train_loader, 'val' : tiny_val_loader}
+train_set = Subset(image_datasets['train'], train_indices)
+val_set   = Subset(image_datasets['val'], val_indices)
+sets =  {'train' : train_set, 'val' : val_set}
 
 # Create training and validation dataloaders
-full_dataloaders = {x: torch.utils.data.DataLoader(
-    image_datasets[x], batch_size=batch_size, shuffle=True, num_workers=4)
+dataloaders = {x: torch.utils.data.DataLoader(
+    sets[x], batch_size=batch_size, shuffle=True, num_workers=4)
     for x in ['train', 'val']}
 
-dataloaders = tiny_dataloaders if tiny_run else full_dataloaders
 
 # Detect if we have a GPU available
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
