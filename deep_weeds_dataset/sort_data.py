@@ -21,5 +21,9 @@ for set_name in ('train', 'val',):
         folder_name = CLASS_NAMES[int(label)]
         dest = set_name + '/' + folder_name + '/' + filename
         src = '../../images/' + filename
-        os.remove(dest)
-        os.symlink(src, dest)
+        try:
+            os.symlink(src, dest)
+        except:
+            os.remove(dest)
+            os.symlink(src, dest)
+

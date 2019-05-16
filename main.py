@@ -27,7 +27,7 @@ tiny_run = True
 
 
 
-def train_model(model, dataloaders, criterion, optimizer, num_epochs=25):
+def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
     since = time.time()
 
     val_acc_history = []
@@ -149,6 +149,8 @@ for param in model.parameters():
 last_layer_in_size = model.fc.in_features
 model.fc = nn.Linear(last_layer_in_size, num_classes)
 
+model.to(device)
+
 print(model)
 
 params_to_train = [p for p in model.parameters() if p.requires_grad]
@@ -159,4 +161,4 @@ criterion = nn.CrossEntropyLoss()
 
 # Train and evaluate
 model, hist = train_model(model, dataloaders, criterion,
-                          opt, num_epochs=num_epochs)
+                          opt, num_epochs, device)
