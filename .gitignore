@@ -103,3 +103,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 plant-seedlings-classification/
+.DS_Store
+deep_weeds_dataset
+.idea
+soybean_dataset
