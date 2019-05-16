@@ -19,4 +19,7 @@ for set_name in ('train', 'val',):
     for line in lines:
         filename, label = line.split(',')
         folder_name = CLASS_NAMES[int(label)]
-        os.symlink('images/' + filename, 'val/' + folder_name + '/' + filename)
+        dest = set_name + '/' + folder_name + '/' + filename
+        src = '../../images/' + filename
+        os.remove(dest)
+        os.symlink(src, dest)
