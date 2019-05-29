@@ -21,9 +21,9 @@ print("Torchvision Version: ",torchvision.__version__)
 num_classes = 9
 input_size = 224
 data_dir = './deep_weeds_dataset'
-batch_size = 8
-num_epochs = 25
-tiny_run = True
+batch_size = 1024
+num_epochs = 1000
+tiny_run = False
 
 def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
     since = time.time()
@@ -146,7 +146,7 @@ dataloaders = {x: torch.utils.data.DataLoader(
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
-model = models.resnet18(pretrained=True)
+model = models.resnet50(pretrained=True)
 
 # Freeze the model parameters
 for param in model.parameters():
