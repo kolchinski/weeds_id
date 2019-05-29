@@ -25,8 +25,6 @@ batch_size = 8
 num_epochs = 25
 tiny_run = True
 
-
-
 def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
     since = time.time()
 
@@ -106,8 +104,6 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
     # load best model weights
     model.load_state_dict(best_model_wts)
     return model, val_acc_history
-
-
 
 
 data_transforms = {
