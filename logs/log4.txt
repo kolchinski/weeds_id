@@ -1,0 +1,1645 @@
+PyTorch Version:  1.1.0
+Torchvision Version:  0.2.2
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+      (downsample): Sequential(
+        (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (layer2): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (layer3): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+      (downsample): Sequential(
+        (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (4): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (5): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (6): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (7): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (8): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (9): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (10): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (11): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (12): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (13): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (14): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (15): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (16): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (17): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (18): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (19): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (20): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (21): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (22): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (layer4): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+      (downsample): Sequential(
+        (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc): Linear(in_features=2048, out_features=9, bias=True)
+)
+[torch.Size([9, 2048]), torch.Size([9])]
+Epoch 0/999
+----------
+train Loss: 1.8451 Acc: 0.4686
+Class 0 (chinee_apple): Accuracy 38.0/675.0 (5.62962962962963%)
+Class 1 (lantana): Accuracy 3.0/637.0 (0.47095761381475665%)
+Class 2 (negatives): Accuracy 4844.0/5463.0 (88.66922936115688%)
+Class 3 (parkinsonia): Accuracy 6.0/618.0 (0.970873786407767%)
+Class 4 (parthenium): Accuracy 5.0/613.0 (0.8156606851549756%)
+Class 5 (prickly_acacia): Accuracy 12.0/637.0 (1.8838304552590266%)
+Class 6 (rubber_vine): Accuracy 1.0/605.0 (0.1652892561983471%)
+Class 7 (siam_weed): Accuracy 11.0/644.0 (1.7080745341614907%)
+Class 8 (snake_weed): Accuracy 1.0/609.0 (0.16420361247947454%)
+val Loss: 1.5625 Acc: 0.5421
+Class 0 (chinee_apple): Accuracy 12.0/225.0 (5.333333333333333%)
+Class 1 (lantana): Accuracy 0.0/213.0 (0.0%)
+Class 2 (negatives): Accuracy 1789.0/1821.0 (98.24272377814388%)
+Class 3 (parkinsonia): Accuracy 4.0/206.0 (1.941747572815534%)
+Class 4 (parthenium): Accuracy 1.0/204.0 (0.49019607843137253%)
+Class 5 (prickly_acacia): Accuracy 92.0/212.0 (43.39622641509434%)
+Class 6 (rubber_vine): Accuracy 0.0/202.0 (0.0%)
+Class 7 (siam_weed): Accuracy 0.0/215.0 (0.0%)
+Class 8 (snake_weed): Accuracy 0.0/203.0 (0.0%)
+
+Epoch 1/999
+----------
+train Loss: 1.3869 Acc: 0.5312
+Class 0 (chinee_apple): Accuracy 13.0/675.0 (1.9259259259259258%)
+Class 1 (lantana): Accuracy 16.0/637.0 (2.511773940345369%)
+Class 2 (negatives): Accuracy 5440.0/5463.0 (99.5789859051803%)
+Class 3 (parkinsonia): Accuracy 4.0/618.0 (0.6472491909385113%)
+Class 4 (parthenium): Accuracy 0.0/613.0 (0.0%)
+Class 5 (prickly_acacia): Accuracy 63.0/637.0 (9.89010989010989%)
+Class 6 (rubber_vine): Accuracy 26.0/605.0 (4.297520661157025%)
+Class 7 (siam_weed): Accuracy 0.0/644.0 (0.0%)
+Class 8 (snake_weed): Accuracy 16.0/609.0 (2.6272577996715927%)
+val Loss: 1.1939 Acc: 0.5958
+Class 0 (chinee_apple): Accuracy 33.0/225.0 (14.666666666666666%)
+Class 1 (lantana): Accuracy 47.0/213.0 (22.065727699530516%)
+Class 2 (negatives): Accuracy 1777.0/1821.0 (97.58374519494784%)
+Class 3 (parkinsonia): Accuracy 15.0/206.0 (7.281553398058253%)
+Class 4 (parthenium): Accuracy 12.0/204.0 (5.882352941176471%)
+Class 5 (prickly_acacia): Accuracy 130.0/212.0 (61.320754716981135%)
+Class 6 (rubber_vine): Accuracy 28.0/202.0 (13.861386138613861%)
+Class 7 (siam_weed): Accuracy 0.0/215.0 (0.0%)
+Class 8 (snake_weed): Accuracy 44.0/203.0 (21.67487684729064%)
+
+Epoch 2/999
+----------
+train Loss: 1.1588 Acc: 0.6001
+Class 0 (chinee_apple): Accuracy 168.0/675.0 (24.88888888888889%)
+Class 1 (lantana): Accuracy 130.0/637.0 (20.408163265306122%)
+Class 2 (negatives): Accuracy 5344.0/5463.0 (97.82170968332419%)
+Class 3 (parkinsonia): Accuracy 110.0/618.0 (17.79935275080906%)
+Class 4 (parthenium): Accuracy 46.0/613.0 (7.504078303425775%)
+Class 5 (prickly_acacia): Accuracy 281.0/637.0 (44.11302982731554%)
+Class 6 (rubber_vine): Accuracy 96.0/605.0 (15.867768595041323%)
+Class 7 (siam_weed): Accuracy 37.0/644.0 (5.745341614906832%)
+Class 8 (snake_weed): Accuracy 90.0/609.0 (14.77832512315271%)
+val Loss: 1.0264 Acc: 0.6390
+Class 0 (chinee_apple): Accuracy 20.0/225.0 (8.88888888888889%)
+Class 1 (lantana): Accuracy 68.0/213.0 (31.92488262910798%)
+Class 2 (negatives): Accuracy 1768.0/1821.0 (97.0895112575508%)
+Class 3 (parkinsonia): Accuracy 40.0/206.0 (19.41747572815534%)
+Class 4 (parthenium): Accuracy 9.0/204.0 (4.411764705882353%)
+Class 5 (prickly_acacia): Accuracy 148.0/212.0 (69.81132075471699%)
+Class 6 (rubber_vine): Accuracy 75.0/202.0 (37.12871287128713%)
+Class 7 (siam_weed): Accuracy 37.0/215.0 (17.209302325581394%)
+Class 8 (snake_weed): Accuracy 72.0/203.0 (35.467980295566505%)
+
+Epoch 3/999
+----------
+train Loss: 1.0158 Acc: 0.6563
+Class 0 (chinee_apple): Accuracy 215.0/675.0 (31.85185185185185%)
+Class 1 (lantana): Accuracy 240.0/637.0 (37.67660910518053%)
+Class 2 (negatives): Accuracy 5207.0/5463.0 (95.31393007505034%)
+Class 3 (parkinsonia): Accuracy 188.0/618.0 (30.42071197411003%)
+Class 4 (parthenium): Accuracy 102.0/613.0 (16.6394779771615%)
+Class 5 (prickly_acacia): Accuracy 379.0/637.0 (59.49764521193092%)
+Class 6 (rubber_vine): Accuracy 234.0/605.0 (38.67768595041322%)
+Class 7 (siam_weed): Accuracy 142.0/644.0 (22.049689440993788%)
+Class 8 (snake_weed): Accuracy 185.0/609.0 (30.37766830870279%)
+val Loss: 0.9289 Acc: 0.6838
+Class 0 (chinee_apple): Accuracy 53.0/225.0 (23.555555555555557%)
+Class 1 (lantana): Accuracy 74.0/213.0 (34.74178403755869%)
+Class 2 (negatives): Accuracy 1726.0/1821.0 (94.78308621636464%)
+Class 3 (parkinsonia): Accuracy 129.0/206.0 (62.62135922330097%)
+Class 4 (parthenium): Accuracy 27.0/204.0 (13.235294117647058%)
+Class 5 (prickly_acacia): Accuracy 152.0/212.0 (71.69811320754717%)
+Class 6 (rubber_vine): Accuracy 87.0/202.0 (43.06930693069307%)
+Class 7 (siam_weed): Accuracy 72.0/215.0 (33.48837209302326%)
+Class 8 (snake_weed): Accuracy 74.0/203.0 (36.45320197044335%)
+
+Epoch 4/999
+----------
+train Loss: 0.9300 Acc: 0.6915
+Class 0 (chinee_apple): Accuracy 223.0/675.0 (33.03703703703704%)
+Class 1 (lantana): Accuracy 290.0/637.0 (45.52590266875981%)
+Class 2 (negatives): Accuracy 5134.0/5463.0 (93.97766794801392%)
+Class 3 (parkinsonia): Accuracy 310.0/618.0 (50.16181229773463%)
+Class 4 (parthenium): Accuracy 155.0/613.0 (25.28548123980424%)
+Class 5 (prickly_acacia): Accuracy 413.0/637.0 (64.83516483516483%)
+Class 6 (rubber_vine): Accuracy 276.0/605.0 (45.6198347107438%)
+Class 7 (siam_weed): Accuracy 225.0/644.0 (34.93788819875776%)
+Class 8 (snake_weed): Accuracy 235.0/609.0 (38.58784893267652%)
+val Loss: 0.8597 Acc: 0.7092
+Class 0 (chinee_apple): Accuracy 100.0/225.0 (44.44444444444444%)
+Class 1 (lantana): Accuracy 91.0/213.0 (42.72300469483568%)
+Class 2 (negatives): Accuracy 1697.0/1821.0 (93.19055464030752%)
+Class 3 (parkinsonia): Accuracy 96.0/206.0 (46.601941747572816%)
+Class 4 (parthenium): Accuracy 64.0/204.0 (31.372549019607842%)
+Class 5 (prickly_acacia): Accuracy 169.0/212.0 (79.71698113207547%)
+Class 6 (rubber_vine): Accuracy 101.0/202.0 (50.0%)
+Class 7 (siam_weed): Accuracy 90.0/215.0 (41.86046511627907%)
+Class 8 (snake_weed): Accuracy 75.0/203.0 (36.94581280788177%)
+
+Epoch 5/999
+----------
+train Loss: 0.8810 Acc: 0.7061
+Class 0 (chinee_apple): Accuracy 276.0/675.0 (40.888888888888886%)
+Class 1 (lantana): Accuracy 283.0/637.0 (44.42700156985871%)
+Class 2 (negatives): Accuracy 5087.0/5463.0 (93.11733479773018%)
+Class 3 (parkinsonia): Accuracy 335.0/618.0 (54.20711974110032%)
+Class 4 (parthenium): Accuracy 207.0/613.0 (33.768352365415986%)
+Class 5 (prickly_acacia): Accuracy 431.0/637.0 (67.66091051805337%)
+Class 6 (rubber_vine): Accuracy 288.0/605.0 (47.603305785123965%)
+Class 7 (siam_weed): Accuracy 257.0/644.0 (39.90683229813665%)
+Class 8 (snake_weed): Accuracy 251.0/609.0 (41.21510673234811%)
+val Loss: 0.8163 Acc: 0.7298
+Class 0 (chinee_apple): Accuracy 103.0/225.0 (45.77777777777778%)
+Class 1 (lantana): Accuracy 113.0/213.0 (53.051643192488264%)
+Class 2 (negatives): Accuracy 1668.0/1821.0 (91.59802306425041%)
+Class 3 (parkinsonia): Accuracy 134.0/206.0 (65.04854368932038%)
+Class 4 (parthenium): Accuracy 79.0/204.0 (38.72549019607843%)
+Class 5 (prickly_acacia): Accuracy 157.0/212.0 (74.05660377358491%)
+Class 6 (rubber_vine): Accuracy 110.0/202.0 (54.45544554455446%)
+Class 7 (siam_weed): Accuracy 121.0/215.0 (56.27906976744186%)
+Class 8 (snake_weed): Accuracy 70.0/203.0 (34.48275862068966%)
+
+Epoch 6/999
+----------
+train Loss: 0.8331 Acc: 0.7232
+Class 0 (chinee_apple): Accuracy 301.0/675.0 (44.592592592592595%)
+Class 1 (lantana): Accuracy 335.0/637.0 (52.590266875981165%)
+Class 2 (negatives): Accuracy 5046.0/5463.0 (92.36683141131246%)
+Class 3 (parkinsonia): Accuracy 376.0/618.0 (60.84142394822006%)
+Class 4 (parthenium): Accuracy 246.0/613.0 (40.1305057096248%)
+Class 5 (prickly_acacia): Accuracy 413.0/637.0 (64.83516483516483%)
+Class 6 (rubber_vine): Accuracy 326.0/605.0 (53.88429752066116%)
+Class 7 (siam_weed): Accuracy 313.0/644.0 (48.60248447204969%)
+Class 8 (snake_weed): Accuracy 238.0/609.0 (39.08045977011494%)
+val Loss: 0.7914 Acc: 0.7304
+Class 0 (chinee_apple): Accuracy 100.0/225.0 (44.44444444444444%)
+Class 1 (lantana): Accuracy 101.0/213.0 (47.417840375586856%)
+Class 2 (negatives): Accuracy 1687.0/1821.0 (92.64140582097748%)
+Class 3 (parkinsonia): Accuracy 143.0/206.0 (69.41747572815534%)
+Class 4 (parthenium): Accuracy 99.0/204.0 (48.529411764705884%)
+Class 5 (prickly_acacia): Accuracy 163.0/212.0 (76.88679245283019%)
+Class 6 (rubber_vine): Accuracy 90.0/202.0 (44.554455445544555%)
+Class 7 (siam_weed): Accuracy 89.0/215.0 (41.395348837209305%)
+Class 8 (snake_weed): Accuracy 85.0/203.0 (41.87192118226601%)
+
+Epoch 7/999
+----------
+train Loss: 0.8004 Acc: 0.7355
+Class 0 (chinee_apple): Accuracy 317.0/675.0 (46.96296296296296%)
+Class 1 (lantana): Accuracy 328.0/637.0 (51.49136577708006%)
+Class 2 (negatives): Accuracy 5017.0/5463.0 (91.83598755262676%)
+Class 3 (parkinsonia): Accuracy 419.0/618.0 (67.79935275080906%)
+Class 4 (parthenium): Accuracy 273.0/613.0 (44.53507340946167%)
+Class 5 (prickly_acacia): Accuracy 451.0/637.0 (70.80062794348508%)
+Class 6 (rubber_vine): Accuracy 348.0/605.0 (57.52066115702479%)
+Class 7 (siam_weed): Accuracy 325.0/644.0 (50.46583850931677%)
+Class 8 (snake_weed): Accuracy 246.0/609.0 (40.39408866995074%)
+val Loss: 0.7683 Acc: 0.7375
+Class 0 (chinee_apple): Accuracy 101.0/225.0 (44.888888888888886%)
+Class 1 (lantana): Accuracy 108.0/213.0 (50.70422535211268%)
+Class 2 (negatives): Accuracy 1716.0/1821.0 (94.2339373970346%)
+Class 3 (parkinsonia): Accuracy 130.0/206.0 (63.10679611650485%)
+Class 4 (parthenium): Accuracy 107.0/204.0 (52.450980392156865%)
+Class 5 (prickly_acacia): Accuracy 149.0/212.0 (70.28301886792453%)
+Class 6 (rubber_vine): Accuracy 83.0/202.0 (41.08910891089109%)
+Class 7 (siam_weed): Accuracy 101.0/215.0 (46.97674418604651%)
+Class 8 (snake_weed): Accuracy 87.0/203.0 (42.857142857142854%)
+
+Epoch 8/999
+----------
+train Loss: 0.7804 Acc: 0.7361
+Class 0 (chinee_apple): Accuracy 330.0/675.0 (48.888888888888886%)
+Class 1 (lantana): Accuracy 328.0/637.0 (51.49136577708006%)
+Class 2 (negatives): Accuracy 5032.0/5463.0 (92.11056196229178%)
+Class 3 (parkinsonia): Accuracy 401.0/618.0 (64.88673139158576%)
+Class 4 (parthenium): Accuracy 284.0/613.0 (46.32952691680261%)
+Class 5 (prickly_acacia): Accuracy 448.0/637.0 (70.32967032967034%)
+Class 6 (rubber_vine): Accuracy 320.0/605.0 (52.892561983471076%)
+Class 7 (siam_weed): Accuracy 328.0/644.0 (50.93167701863354%)
+Class 8 (snake_weed): Accuracy 259.0/609.0 (42.52873563218391%)
+val Loss: 0.7371 Acc: 0.7492
+Class 0 (chinee_apple): Accuracy 107.0/225.0 (47.55555555555556%)
+Class 1 (lantana): Accuracy 125.0/213.0 (58.68544600938967%)
+Class 2 (negatives): Accuracy 1698.0/1821.0 (93.24546952224053%)
+Class 3 (parkinsonia): Accuracy 155.0/206.0 (75.24271844660194%)
+Class 4 (parthenium): Accuracy 97.0/204.0 (47.549019607843135%)
+Class 5 (prickly_acacia): Accuracy 157.0/212.0 (74.05660377358491%)
+Class 6 (rubber_vine): Accuracy 92.0/202.0 (45.54455445544554%)
+Class 7 (siam_weed): Accuracy 108.0/215.0 (50.23255813953488%)
+Class 8 (snake_weed): Accuracy 84.0/203.0 (41.37931034482759%)
+
+Epoch 9/999
+----------
+train Loss: 0.7590 Acc: 0.7473
+Class 0 (chinee_apple): Accuracy 303.0/675.0 (44.888888888888886%)
+Class 1 (lantana): Accuracy 346.0/637.0 (54.3171114599686%)
+Class 2 (negatives): Accuracy 5039.0/5463.0 (92.23869668680213%)
+Class 3 (parkinsonia): Accuracy 426.0/618.0 (68.93203883495146%)
+Class 4 (parthenium): Accuracy 285.0/613.0 (46.492659053833606%)
+Class 5 (prickly_acacia): Accuracy 453.0/637.0 (71.11459968602826%)
+Class 6 (rubber_vine): Accuracy 347.0/605.0 (57.35537190082645%)
+Class 7 (siam_weed): Accuracy 361.0/644.0 (56.05590062111801%)
+Class 8 (snake_weed): Accuracy 287.0/609.0 (47.12643678160919%)
+val Loss: 0.7189 Acc: 0.7621
+Class 0 (chinee_apple): Accuracy 111.0/225.0 (49.333333333333336%)
+Class 1 (lantana): Accuracy 138.0/213.0 (64.78873239436619%)
+Class 2 (negatives): Accuracy 1693.0/1821.0 (92.9708951125755%)
+Class 3 (parkinsonia): Accuracy 149.0/206.0 (72.33009708737865%)
+Class 4 (parthenium): Accuracy 119.0/204.0 (58.333333333333336%)
+Class 5 (prickly_acacia): Accuracy 153.0/212.0 (72.16981132075472%)
+Class 6 (rubber_vine): Accuracy 111.0/202.0 (54.95049504950495%)
+Class 7 (siam_weed): Accuracy 103.0/215.0 (47.906976744186046%)
+Class 8 (snake_weed): Accuracy 91.0/203.0 (44.827586206896555%)
+
+Epoch 10/999
+----------
+train Loss: 0.7286 Acc: 0.7597
+Class 0 (chinee_apple): Accuracy 347.0/675.0 (51.407407407407405%)
+Class 1 (lantana): Accuracy 370.0/637.0 (58.084772370486654%)
+Class 2 (negatives): Accuracy 5026.0/5463.0 (92.00073219842578%)
+Class 3 (parkinsonia): Accuracy 448.0/618.0 (72.49190938511327%)
+Class 4 (parthenium): Accuracy 331.0/613.0 (53.99673735725938%)
+Class 5 (prickly_acacia): Accuracy 455.0/637.0 (71.42857142857143%)
+Class 6 (rubber_vine): Accuracy 357.0/605.0 (59.00826446280992%)
+Class 7 (siam_weed): Accuracy 364.0/644.0 (56.52173913043478%)
+Class 8 (snake_weed): Accuracy 280.0/609.0 (45.97701149425287%)
+val Loss: 0.7070 Acc: 0.7581
+Class 0 (chinee_apple): Accuracy 113.0/225.0 (50.22222222222222%)
+Class 1 (lantana): Accuracy 124.0/213.0 (58.21596244131455%)
+Class 2 (negatives): Accuracy 1707.0/1821.0 (93.73970345963757%)
+Class 3 (parkinsonia): Accuracy 150.0/206.0 (72.81553398058253%)
+Class 4 (parthenium): Accuracy 95.0/204.0 (46.568627450980394%)
+Class 5 (prickly_acacia): Accuracy 163.0/212.0 (76.88679245283019%)
+Class 6 (rubber_vine): Accuracy 111.0/202.0 (54.95049504950495%)
+Class 7 (siam_weed): Accuracy 105.0/215.0 (48.83720930232558%)
+Class 8 (snake_weed): Accuracy 86.0/203.0 (42.364532019704434%)
+
+Epoch 11/999
+----------
+train Loss: 0.7282 Acc: 0.7570
+Class 0 (chinee_apple): Accuracy 337.0/675.0 (49.925925925925924%)
+Class 1 (lantana): Accuracy 383.0/637.0 (60.12558869701727%)
+Class 2 (negatives): Accuracy 4986.0/5463.0 (91.26853377265239%)
+Class 3 (parkinsonia): Accuracy 436.0/618.0 (70.55016181229773%)
+Class 4 (parthenium): Accuracy 334.0/613.0 (54.48613376835237%)
+Class 5 (prickly_acacia): Accuracy 450.0/637.0 (70.6436420722135%)
+Class 6 (rubber_vine): Accuracy 381.0/605.0 (62.97520661157025%)
+Class 7 (siam_weed): Accuracy 370.0/644.0 (57.453416149068325%)
+Class 8 (snake_weed): Accuracy 272.0/609.0 (44.66338259441708%)
+val Loss: 0.7021 Acc: 0.7558
+Class 0 (chinee_apple): Accuracy 126.0/225.0 (56.0%)
+Class 1 (lantana): Accuracy 120.0/213.0 (56.33802816901409%)
+Class 2 (negatives): Accuracy 1704.0/1821.0 (93.57495881383855%)
+Class 3 (parkinsonia): Accuracy 141.0/206.0 (68.44660194174757%)
+Class 4 (parthenium): Accuracy 91.0/204.0 (44.6078431372549%)
+Class 5 (prickly_acacia): Accuracy 173.0/212.0 (81.60377358490567%)
+Class 6 (rubber_vine): Accuracy 90.0/202.0 (44.554455445544555%)
+Class 7 (siam_weed): Accuracy 113.0/215.0 (52.55813953488372%)
+Class 8 (snake_weed): Accuracy 88.0/203.0 (43.34975369458128%)
+
+Epoch 12/999
+----------
+train Loss: 0.7107 Acc: 0.7630
+Class 0 (chinee_apple): Accuracy 360.0/675.0 (53.333333333333336%)
+Class 1 (lantana): Accuracy 376.0/637.0 (59.02668759811617%)
+Class 2 (negatives): Accuracy 5008.0/5463.0 (91.67124290682776%)
+Class 3 (parkinsonia): Accuracy 429.0/618.0 (69.41747572815534%)
+Class 4 (parthenium): Accuracy 340.0/613.0 (55.46492659053833%)
+Class 5 (prickly_acacia): Accuracy 450.0/637.0 (70.6436420722135%)
+Class 6 (rubber_vine): Accuracy 380.0/605.0 (62.8099173553719%)
+Class 7 (siam_weed): Accuracy 383.0/644.0 (59.47204968944099%)
+Class 8 (snake_weed): Accuracy 286.0/609.0 (46.96223316912972%)
+val Loss: 0.6832 Acc: 0.7658
+Class 0 (chinee_apple): Accuracy 106.0/225.0 (47.111111111111114%)
+Class 1 (lantana): Accuracy 125.0/213.0 (58.68544600938967%)
+Class 2 (negatives): Accuracy 1713.0/1821.0 (94.06919275123559%)
+Class 3 (parkinsonia): Accuracy 151.0/206.0 (73.30097087378641%)
+Class 4 (parthenium): Accuracy 100.0/204.0 (49.01960784313726%)
+Class 5 (prickly_acacia): Accuracy 161.0/212.0 (75.94339622641509%)
+Class 6 (rubber_vine): Accuracy 107.0/202.0 (52.97029702970297%)
+Class 7 (siam_weed): Accuracy 119.0/215.0 (55.348837209302324%)
+Class 8 (snake_weed): Accuracy 99.0/203.0 (48.76847290640394%)
+
+Epoch 13/999
+----------
+train Loss: 0.6866 Acc: 0.7715
+Class 0 (chinee_apple): Accuracy 355.0/675.0 (52.592592592592595%)
+Class 1 (lantana): Accuracy 395.0/637.0 (62.009419152276294%)
+Class 2 (negatives): Accuracy 5026.0/5463.0 (92.00073219842578%)
+Class 3 (parkinsonia): Accuracy 453.0/618.0 (73.30097087378641%)
+Class 4 (parthenium): Accuracy 331.0/613.0 (53.99673735725938%)
+Class 5 (prickly_acacia): Accuracy 480.0/637.0 (75.35321821036106%)
+Class 6 (rubber_vine): Accuracy 369.0/605.0 (60.99173553719008%)
+Class 7 (siam_weed): Accuracy 395.0/644.0 (61.33540372670807%)
+Class 8 (snake_weed): Accuracy 298.0/609.0 (48.93267651888342%)
+val Loss: 0.6649 Acc: 0.7821
+Class 0 (chinee_apple): Accuracy 128.0/225.0 (56.888888888888886%)
+Class 1 (lantana): Accuracy 131.0/213.0 (61.502347417840376%)
+Class 2 (negatives): Accuracy 1691.0/1821.0 (92.8610653487095%)
+Class 3 (parkinsonia): Accuracy 153.0/206.0 (74.27184466019418%)
+Class 4 (parthenium): Accuracy 133.0/204.0 (65.19607843137256%)
+Class 5 (prickly_acacia): Accuracy 158.0/212.0 (74.52830188679245%)
+Class 6 (rubber_vine): Accuracy 126.0/202.0 (62.37623762376238%)
+Class 7 (siam_weed): Accuracy 119.0/215.0 (55.348837209302324%)
+Class 8 (snake_weed): Accuracy 99.0/203.0 (48.76847290640394%)
+
+Epoch 14/999
+----------
+train Loss: 0.6794 Acc: 0.7732
+Class 0 (chinee_apple): Accuracy 358.0/675.0 (53.03703703703704%)
+Class 1 (lantana): Accuracy 398.0/637.0 (62.480376766091055%)
+Class 2 (negatives): Accuracy 5016.0/5463.0 (91.81768259198243%)
+Class 3 (parkinsonia): Accuracy 471.0/618.0 (76.2135922330097%)
+Class 4 (parthenium): Accuracy 342.0/613.0 (55.791190864600324%)
+Class 5 (prickly_acacia): Accuracy 466.0/637.0 (73.15541601255887%)
+Class 6 (rubber_vine): Accuracy 377.0/605.0 (62.31404958677686%)
+Class 7 (siam_weed): Accuracy 389.0/644.0 (60.40372670807454%)
+Class 8 (snake_weed): Accuracy 302.0/609.0 (49.589490968801314%)
+val Loss: 0.6617 Acc: 0.7741
+Class 0 (chinee_apple): Accuracy 117.0/225.0 (52.0%)
+Class 1 (lantana): Accuracy 128.0/213.0 (60.093896713615024%)
+Class 2 (negatives): Accuracy 1705.0/1821.0 (93.62987369577155%)
+Class 3 (parkinsonia): Accuracy 144.0/206.0 (69.90291262135922%)
+Class 4 (parthenium): Accuracy 123.0/204.0 (60.294117647058826%)
+Class 5 (prickly_acacia): Accuracy 165.0/212.0 (77.83018867924528%)
+Class 6 (rubber_vine): Accuracy 122.0/202.0 (60.396039603960396%)
+Class 7 (siam_weed): Accuracy 113.0/215.0 (52.55813953488372%)
+Class 8 (snake_weed): Accuracy 93.0/203.0 (45.8128078817734%)
+
+Epoch 15/999
+----------
+train Loss: 0.6744 Acc: 0.7697
+Class 0 (chinee_apple): Accuracy 347.0/675.0 (51.407407407407405%)
+Class 1 (lantana): Accuracy 387.0/637.0 (60.75353218210361%)
+Class 2 (negatives): Accuracy 5020.0/5463.0 (91.89090243455976%)
+Class 3 (parkinsonia): Accuracy 455.0/618.0 (73.62459546925567%)
+Class 4 (parthenium): Accuracy 347.0/613.0 (56.606851549755305%)
+Class 5 (prickly_acacia): Accuracy 470.0/637.0 (73.78335949764521%)
+Class 6 (rubber_vine): Accuracy 370.0/605.0 (61.15702479338843%)
+Class 7 (siam_weed): Accuracy 395.0/644.0 (61.33540372670807%)
+Class 8 (snake_weed): Accuracy 292.0/609.0 (47.947454844006565%)
+val Loss: 0.6565 Acc: 0.7763
+Class 0 (chinee_apple): Accuracy 111.0/225.0 (49.333333333333336%)
+Class 1 (lantana): Accuracy 136.0/213.0 (63.84976525821596%)
+Class 2 (negatives): Accuracy 1716.0/1821.0 (94.2339373970346%)
+Class 3 (parkinsonia): Accuracy 151.0/206.0 (73.30097087378641%)
+Class 4 (parthenium): Accuracy 105.0/204.0 (51.470588235294116%)
+Class 5 (prickly_acacia): Accuracy 171.0/212.0 (80.66037735849056%)
+Class 6 (rubber_vine): Accuracy 121.0/202.0 (59.9009900990099%)
+Class 7 (siam_weed): Accuracy 117.0/215.0 (54.41860465116279%)
+Class 8 (snake_weed): Accuracy 90.0/203.0 (44.33497536945813%)
+
+Epoch 16/999
+----------
+train Loss: 0.6634 Acc: 0.7753
+Class 0 (chinee_apple): Accuracy 344.0/675.0 (50.96296296296296%)
+Class 1 (lantana): Accuracy 406.0/637.0 (63.73626373626374%)
+Class 2 (negatives): Accuracy 5013.0/5463.0 (91.76276771004942%)
+Class 3 (parkinsonia): Accuracy 463.0/618.0 (74.91909385113269%)
+Class 4 (parthenium): Accuracy 349.0/613.0 (56.93311582381729%)
+Class 5 (prickly_acacia): Accuracy 468.0/637.0 (73.46938775510205%)
+Class 6 (rubber_vine): Accuracy 387.0/605.0 (63.96694214876033%)
+Class 7 (siam_weed): Accuracy 414.0/644.0 (64.28571428571429%)
+Class 8 (snake_weed): Accuracy 297.0/609.0 (48.76847290640394%)
+val Loss: 0.6409 Acc: 0.7858
+Class 0 (chinee_apple): Accuracy 132.0/225.0 (58.666666666666664%)
+Class 1 (lantana): Accuracy 119.0/213.0 (55.86854460093897%)
+Class 2 (negatives): Accuracy 1699.0/1821.0 (93.30038440417353%)
+Class 3 (parkinsonia): Accuracy 165.0/206.0 (80.09708737864078%)
+Class 4 (parthenium): Accuracy 128.0/204.0 (62.745098039215684%)
+Class 5 (prickly_acacia): Accuracy 166.0/212.0 (78.30188679245283%)
+Class 6 (rubber_vine): Accuracy 126.0/202.0 (62.37623762376238%)
+Class 7 (siam_weed): Accuracy 113.0/215.0 (52.55813953488372%)
+Class 8 (snake_weed): Accuracy 103.0/203.0 (50.73891625615764%)
+
+Epoch 17/999
+----------
+train Loss: 0.6524 Acc: 0.7782
+Class 0 (chinee_apple): Accuracy 379.0/675.0 (56.148148148148145%)
+Class 1 (lantana): Accuracy 397.0/637.0 (62.32339089481947%)
+Class 2 (negatives): Accuracy 4971.0/5463.0 (90.99395936298737%)
+Class 3 (parkinsonia): Accuracy 488.0/618.0 (78.96440129449839%)
+Class 4 (parthenium): Accuracy 354.0/613.0 (57.74877650897227%)
+Class 5 (prickly_acacia): Accuracy 478.0/637.0 (75.03924646781789%)
+Class 6 (rubber_vine): Accuracy 397.0/605.0 (65.6198347107438%)
+Class 7 (siam_weed): Accuracy 406.0/644.0 (63.04347826086956%)
+Class 8 (snake_weed): Accuracy 302.0/609.0 (49.589490968801314%)
+val Loss: 0.6303 Acc: 0.7906
+Class 0 (chinee_apple): Accuracy 123.0/225.0 (54.666666666666664%)
+Class 1 (lantana): Accuracy 136.0/213.0 (63.84976525821596%)
+Class 2 (negatives): Accuracy 1702.0/1821.0 (93.46512904997255%)
+Class 3 (parkinsonia): Accuracy 153.0/206.0 (74.27184466019418%)
+Class 4 (parthenium): Accuracy 120.0/204.0 (58.8235294117647%)
+Class 5 (prickly_acacia): Accuracy 161.0/212.0 (75.94339622641509%)
+Class 6 (rubber_vine): Accuracy 138.0/202.0 (68.31683168316832%)
+Class 7 (siam_weed): Accuracy 128.0/215.0 (59.53488372093023%)
+Class 8 (snake_weed): Accuracy 107.0/203.0 (52.70935960591133%)
+
+Epoch 18/999
+----------
+train Loss: 0.6525 Acc: 0.7814
+Class 0 (chinee_apple): Accuracy 374.0/675.0 (55.407407407407405%)
+Class 1 (lantana): Accuracy 424.0/637.0 (66.56200941915228%)
+Class 2 (negatives): Accuracy 4985.0/5463.0 (91.25022881200806%)
+Class 3 (parkinsonia): Accuracy 470.0/618.0 (76.05177993527508%)
+Class 4 (parthenium): Accuracy 353.0/613.0 (57.58564437194127%)
+Class 5 (prickly_acacia): Accuracy 479.0/637.0 (75.19623233908948%)
+Class 6 (rubber_vine): Accuracy 381.0/605.0 (62.97520661157025%)
+Class 7 (siam_weed): Accuracy 417.0/644.0 (64.75155279503106%)
+Class 8 (snake_weed): Accuracy 322.0/609.0 (52.87356321839081%)
+val Loss: 0.6272 Acc: 0.7921
+Class 0 (chinee_apple): Accuracy 122.0/225.0 (54.22222222222222%)
+Class 1 (lantana): Accuracy 126.0/213.0 (59.15492957746479%)
+Class 2 (negatives): Accuracy 1707.0/1821.0 (93.73970345963757%)
+Class 3 (parkinsonia): Accuracy 156.0/206.0 (75.72815533980582%)
+Class 4 (parthenium): Accuracy 140.0/204.0 (68.62745098039215%)
+Class 5 (prickly_acacia): Accuracy 164.0/212.0 (77.35849056603773%)
+Class 6 (rubber_vine): Accuracy 134.0/202.0 (66.33663366336634%)
+Class 7 (siam_weed): Accuracy 115.0/215.0 (53.48837209302326%)
+Class 8 (snake_weed): Accuracy 109.0/203.0 (53.69458128078818%)
+
+Epoch 19/999
+----------
+train Loss: 0.6427 Acc: 0.7837
+Class 0 (chinee_apple): Accuracy 381.0/675.0 (56.44444444444444%)
+Class 1 (lantana): Accuracy 407.0/637.0 (63.893249607535324%)
+Class 2 (negatives): Accuracy 5013.0/5463.0 (91.76276771004942%)
+Class 3 (parkinsonia): Accuracy 483.0/618.0 (78.15533980582525%)
+Class 4 (parthenium): Accuracy 359.0/613.0 (58.564437194127244%)
+Class 5 (prickly_acacia): Accuracy 467.0/637.0 (73.31240188383046%)
+Class 6 (rubber_vine): Accuracy 400.0/605.0 (66.11570247933884%)
+Class 7 (siam_weed): Accuracy 414.0/644.0 (64.28571428571429%)
+Class 8 (snake_weed): Accuracy 306.0/609.0 (50.24630541871921%)
+val Loss: 0.6193 Acc: 0.7943
+Class 0 (chinee_apple): Accuracy 120.0/225.0 (53.333333333333336%)
+Class 1 (lantana): Accuracy 135.0/213.0 (63.38028169014085%)
+Class 2 (negatives): Accuracy 1695.0/1821.0 (93.08072487644152%)
+Class 3 (parkinsonia): Accuracy 165.0/206.0 (80.09708737864078%)
+Class 4 (parthenium): Accuracy 121.0/204.0 (59.31372549019608%)
+Class 5 (prickly_acacia): Accuracy 170.0/212.0 (80.18867924528301%)
+Class 6 (rubber_vine): Accuracy 133.0/202.0 (65.84158415841584%)
+Class 7 (siam_weed): Accuracy 128.0/215.0 (59.53488372093023%)
+Class 8 (snake_weed): Accuracy 114.0/203.0 (56.1576354679803%)
+
+Epoch 20/999
+----------
+train Loss: 0.6332 Acc: 0.7853
+Class 0 (chinee_apple): Accuracy 376.0/675.0 (55.7037037037037%)
+Class 1 (lantana): Accuracy 419.0/637.0 (65.77708006279435%)
+Class 2 (negatives): Accuracy 4975.0/5463.0 (91.06717920556471%)
+Class 3 (parkinsonia): Accuracy 476.0/618.0 (77.02265372168284%)
+Class 4 (parthenium): Accuracy 355.0/613.0 (57.91190864600326%)
+Class 5 (prickly_acacia): Accuracy 470.0/637.0 (73.78335949764521%)
+Class 6 (rubber_vine): Accuracy 389.0/605.0 (64.29752066115702%)
+Class 7 (siam_weed): Accuracy 444.0/644.0 (68.94409937888199%)
+Class 8 (snake_weed): Accuracy 342.0/609.0 (56.1576354679803%)
+val Loss: 0.6313 Acc: 0.7852
+Class 0 (chinee_apple): Accuracy 109.0/225.0 (48.44444444444444%)
+Class 1 (lantana): Accuracy 133.0/213.0 (62.44131455399061%)
+Class 2 (negatives): Accuracy 1731.0/1821.0 (95.05766062602966%)
+Class 3 (parkinsonia): Accuracy 154.0/206.0 (74.75728155339806%)
+Class 4 (parthenium): Accuracy 126.0/204.0 (61.76470588235294%)
+Class 5 (prickly_acacia): Accuracy 169.0/212.0 (79.71698113207547%)
+Class 6 (rubber_vine): Accuracy 120.0/202.0 (59.40594059405941%)
+Class 7 (siam_weed): Accuracy 111.0/215.0 (51.627906976744185%)
+Class 8 (snake_weed): Accuracy 96.0/203.0 (47.29064039408867%)
+
+Epoch 21/999
+----------
+train Loss: 0.6304 Acc: 0.7855
+Class 0 (chinee_apple): Accuracy 337.0/675.0 (49.925925925925924%)
+Class 1 (lantana): Accuracy 399.0/637.0 (62.637362637362635%)
+Class 2 (negatives): Accuracy 5026.0/5463.0 (92.00073219842578%)
+Class 3 (parkinsonia): Accuracy 478.0/618.0 (77.3462783171521%)
+Class 4 (parthenium): Accuracy 382.0/613.0 (62.31647634584013%)
+Class 5 (prickly_acacia): Accuracy 478.0/637.0 (75.03924646781789%)
+Class 6 (rubber_vine): Accuracy 404.0/605.0 (66.77685950413223%)
+Class 7 (siam_weed): Accuracy 413.0/644.0 (64.1304347826087%)
+Class 8 (snake_weed): Accuracy 332.0/609.0 (54.51559934318555%)
+val Loss: 0.6097 Acc: 0.7941
+Class 0 (chinee_apple): Accuracy 137.0/225.0 (60.888888888888886%)
+Class 1 (lantana): Accuracy 142.0/213.0 (66.66666666666667%)
+Class 2 (negatives): Accuracy 1709.0/1821.0 (93.84953322350357%)
+Class 3 (parkinsonia): Accuracy 155.0/206.0 (75.24271844660194%)
+Class 4 (parthenium): Accuracy 108.0/204.0 (52.94117647058823%)
+Class 5 (prickly_acacia): Accuracy 168.0/212.0 (79.24528301886792%)
+Class 6 (rubber_vine): Accuracy 129.0/202.0 (63.86138613861386%)
+Class 7 (siam_weed): Accuracy 130.0/215.0 (60.46511627906977%)
+Class 8 (snake_weed): Accuracy 102.0/203.0 (50.24630541871921%)
+
+Epoch 22/999
+----------
+train Loss: 0.6185 Acc: 0.7904
+Class 0 (chinee_apple): Accuracy 361.0/675.0 (53.48148148148148%)
+Class 1 (lantana): Accuracy 424.0/637.0 (66.56200941915228%)
+Class 2 (negatives): Accuracy 4995.0/5463.0 (91.4332784184514%)
+Class 3 (parkinsonia): Accuracy 499.0/618.0 (80.74433656957929%)
+Class 4 (parthenium): Accuracy 375.0/613.0 (61.174551386623165%)
+Class 5 (prickly_acacia): Accuracy 477.0/637.0 (74.88226059654632%)
+Class 6 (rubber_vine): Accuracy 404.0/605.0 (66.77685950413223%)
+Class 7 (siam_weed): Accuracy 423.0/644.0 (65.6832298136646%)
+Class 8 (snake_weed): Accuracy 342.0/609.0 (56.1576354679803%)
+val Loss: 0.6034 Acc: 0.7926
+Class 0 (chinee_apple): Accuracy 136.0/225.0 (60.44444444444444%)
+Class 1 (lantana): Accuracy 137.0/213.0 (64.31924882629107%)
+Class 2 (negatives): Accuracy 1702.0/1821.0 (93.46512904997255%)
+Class 3 (parkinsonia): Accuracy 145.0/206.0 (70.3883495145631%)
+Class 4 (parthenium): Accuracy 114.0/204.0 (55.88235294117647%)
+Class 5 (prickly_acacia): Accuracy 172.0/212.0 (81.13207547169812%)
+Class 6 (rubber_vine): Accuracy 133.0/202.0 (65.84158415841584%)
+Class 7 (siam_weed): Accuracy 133.0/215.0 (61.86046511627907%)
+Class 8 (snake_weed): Accuracy 103.0/203.0 (50.73891625615764%)
+
+Epoch 23/999
+----------
+train Loss: 0.6202 Acc: 0.7860
+Class 0 (chinee_apple): Accuracy 379.0/675.0 (56.148148148148145%)
+Class 1 (lantana): Accuracy 396.0/637.0 (62.16640502354788%)
+Class 2 (negatives): Accuracy 5023.0/5463.0 (91.94581731649276%)
+Class 3 (parkinsonia): Accuracy 459.0/618.0 (74.27184466019418%)
+Class 4 (parthenium): Accuracy 371.0/613.0 (60.52202283849918%)
+Class 5 (prickly_acacia): Accuracy 467.0/637.0 (73.31240188383046%)
+Class 6 (rubber_vine): Accuracy 413.0/605.0 (68.26446280991736%)
+Class 7 (siam_weed): Accuracy 426.0/644.0 (66.14906832298136%)
+Class 8 (snake_weed): Accuracy 320.0/609.0 (52.545155993431855%)
+val Loss: 0.6074 Acc: 0.7901
+Class 0 (chinee_apple): Accuracy 117.0/225.0 (52.0%)
+Class 1 (lantana): Accuracy 147.0/213.0 (69.01408450704226%)
+Class 2 (negatives): Accuracy 1701.0/1821.0 (93.41021416803954%)
+Class 3 (parkinsonia): Accuracy 156.0/206.0 (75.72815533980582%)
+Class 4 (parthenium): Accuracy 125.0/204.0 (61.27450980392157%)
+Class 5 (prickly_acacia): Accuracy 173.0/212.0 (81.60377358490567%)
+Class 6 (rubber_vine): Accuracy 119.0/202.0 (58.91089108910891%)
+Class 7 (siam_weed): Accuracy 126.0/215.0 (58.604651162790695%)
+Class 8 (snake_weed): Accuracy 102.0/203.0 (50.24630541871921%)
+
+Epoch 24/999
+----------
+train Loss: 0.6072 Acc: 0.7938
+Class 0 (chinee_apple): Accuracy 383.0/675.0 (56.74074074074074%)
+Class 1 (lantana): Accuracy 410.0/637.0 (64.36420722135009%)
+Class 2 (negatives): Accuracy 5040.0/5463.0 (92.25700164744646%)
+Class 3 (parkinsonia): Accuracy 473.0/618.0 (76.53721682847896%)
+Class 4 (parthenium): Accuracy 378.0/613.0 (61.66394779771615%)
+Class 5 (prickly_acacia): Accuracy 482.0/637.0 (75.66718995290424%)
+Class 6 (rubber_vine): Accuracy 390.0/605.0 (64.46280991735537%)
+Class 7 (siam_weed): Accuracy 439.0/644.0 (68.16770186335404%)
+Class 8 (snake_weed): Accuracy 341.0/609.0 (55.99343185550082%)
+val Loss: 0.5901 Acc: 0.8043
+Class 0 (chinee_apple): Accuracy 139.0/225.0 (61.77777777777778%)
+Class 1 (lantana): Accuracy 155.0/213.0 (72.7699530516432%)
+Class 2 (negatives): Accuracy 1668.0/1821.0 (91.59802306425041%)
+Class 3 (parkinsonia): Accuracy 168.0/206.0 (81.55339805825243%)
+Class 4 (parthenium): Accuracy 134.0/204.0 (65.68627450980392%)
+Class 5 (prickly_acacia): Accuracy 171.0/212.0 (80.66037735849056%)
+Class 6 (rubber_vine): Accuracy 145.0/202.0 (71.78217821782178%)
+Class 7 (siam_weed): Accuracy 136.0/215.0 (63.25581395348837%)
+Class 8 (snake_weed): Accuracy 100.0/203.0 (49.26108374384236%)
+
+Epoch 25/999
+----------
+train Loss: 0.6067 Acc: 0.7989
+Class 0 (chinee_apple): Accuracy 401.0/675.0 (59.407407407407405%)
+Class 1 (lantana): Accuracy 429.0/637.0 (67.34693877551021%)
+Class 2 (negatives): Accuracy 4993.0/5463.0 (91.39666849716274%)
+Class 3 (parkinsonia): Accuracy 484.0/618.0 (78.31715210355988%)
+Class 4 (parthenium): Accuracy 393.0/613.0 (64.11092985318108%)
+Class 5 (prickly_acacia): Accuracy 499.0/637.0 (78.33594976452119%)
+Class 6 (rubber_vine): Accuracy 412.0/605.0 (68.09917355371901%)
+Class 7 (siam_weed): Accuracy 436.0/644.0 (67.70186335403727%)
+Class 8 (snake_weed): Accuracy 342.0/609.0 (56.1576354679803%)
+val Loss: 0.5983 Acc: 0.7972
+Class 0 (chinee_apple): Accuracy 139.0/225.0 (61.77777777777778%)
+Class 1 (lantana): Accuracy 131.0/213.0 (61.502347417840376%)
+Class 2 (negatives): Accuracy 1721.0/1821.0 (94.50851180669962%)
+Class 3 (parkinsonia): Accuracy 158.0/206.0 (76.69902912621359%)
+Class 4 (parthenium): Accuracy 129.0/204.0 (63.23529411764706%)
+Class 5 (prickly_acacia): Accuracy 159.0/212.0 (75.0%)
+Class 6 (rubber_vine): Accuracy 133.0/202.0 (65.84158415841584%)
+Class 7 (siam_weed): Accuracy 121.0/215.0 (56.27906976744186%)
+Class 8 (snake_weed): Accuracy 100.0/203.0 (49.26108374384236%)
+
+Epoch 26/999
+----------
+train Loss: 0.6119 Acc: 0.7918
+Class 0 (chinee_apple): Accuracy 379.0/675.0 (56.148148148148145%)
+Class 1 (lantana): Accuracy 412.0/637.0 (64.67817896389325%)
+Class 2 (negatives): Accuracy 4967.0/5463.0 (90.92073952041004%)
+Class 3 (parkinsonia): Accuracy 483.0/618.0 (78.15533980582525%)
+Class 4 (parthenium): Accuracy 392.0/613.0 (63.947797716150085%)
+Class 5 (prickly_acacia): Accuracy 492.0/637.0 (77.2370486656201%)
+Class 6 (rubber_vine): Accuracy 409.0/605.0 (67.60330578512396%)
+Class 7 (siam_weed): Accuracy 453.0/644.0 (70.3416149068323%)
+Class 8 (snake_weed): Accuracy 328.0/609.0 (53.858784893267654%)
+val Loss: 0.6058 Acc: 0.7955
+Class 0 (chinee_apple): Accuracy 123.0/225.0 (54.666666666666664%)
+Class 1 (lantana): Accuracy 125.0/213.0 (58.68544600938967%)
+Class 2 (negatives): Accuracy 1742.0/1821.0 (95.6617243272927%)
+Class 3 (parkinsonia): Accuracy 152.0/206.0 (73.7864077669903%)
+Class 4 (parthenium): Accuracy 128.0/204.0 (62.745098039215684%)
+Class 5 (prickly_acacia): Accuracy 161.0/212.0 (75.94339622641509%)
+Class 6 (rubber_vine): Accuracy 139.0/202.0 (68.81188118811882%)
+Class 7 (siam_weed): Accuracy 106.0/215.0 (49.30232558139535%)
+Class 8 (snake_weed): Accuracy 109.0/203.0 (53.69458128078818%)
+
+Epoch 27/999
+----------
+train Loss: 0.5952 Acc: 0.7974
+Class 0 (chinee_apple): Accuracy 391.0/675.0 (57.925925925925924%)
+Class 1 (lantana): Accuracy 420.0/637.0 (65.93406593406593%)
+Class 2 (negatives): Accuracy 5023.0/5463.0 (91.94581731649276%)
+Class 3 (parkinsonia): Accuracy 492.0/618.0 (79.6116504854369%)
+Class 4 (parthenium): Accuracy 383.0/613.0 (62.47960848287113%)
+Class 5 (prickly_acacia): Accuracy 486.0/637.0 (76.29513343799059%)
+Class 6 (rubber_vine): Accuracy 401.0/605.0 (66.28099173553719%)
+Class 7 (siam_weed): Accuracy 435.0/644.0 (67.54658385093168%)
+Class 8 (snake_weed): Accuracy 342.0/609.0 (56.1576354679803%)
+val Loss: 0.6057 Acc: 0.7978
+Class 0 (chinee_apple): Accuracy 104.0/225.0 (46.22222222222222%)
+Class 1 (lantana): Accuracy 131.0/213.0 (61.502347417840376%)
+Class 2 (negatives): Accuracy 1745.0/1821.0 (95.8264689730917%)
+Class 3 (parkinsonia): Accuracy 154.0/206.0 (74.75728155339806%)
+Class 4 (parthenium): Accuracy 131.0/204.0 (64.2156862745098%)
+Class 5 (prickly_acacia): Accuracy 161.0/212.0 (75.94339622641509%)
+Class 6 (rubber_vine): Accuracy 136.0/202.0 (67.32673267326733%)
+Class 7 (siam_weed): Accuracy 115.0/215.0 (53.48837209302326%)
+Class 8 (snake_weed): Accuracy 116.0/203.0 (57.142857142857146%)
+
+Epoch 28/999
+----------
+train Loss: 0.5891 Acc: 0.8002
+Class 0 (chinee_apple): Accuracy 367.0/675.0 (54.370370370370374%)
+Class 1 (lantana): Accuracy 434.0/637.0 (68.13186813186813%)
+Class 2 (negatives): Accuracy 5003.0/5463.0 (91.57971810360608%)
+Class 3 (parkinsonia): Accuracy 499.0/618.0 (80.74433656957929%)
+Class 4 (parthenium): Accuracy 411.0/613.0 (67.04730831973899%)
+Class 5 (prickly_acacia): Accuracy 501.0/637.0 (78.64992150706436%)
+Class 6 (rubber_vine): Accuracy 402.0/605.0 (66.44628099173553%)
+Class 7 (siam_weed): Accuracy 443.0/644.0 (68.7888198757764%)
+Class 8 (snake_weed): Accuracy 343.0/609.0 (56.32183908045977%)
+val Loss: 0.5875 Acc: 0.8032
+Class 0 (chinee_apple): Accuracy 113.0/225.0 (50.22222222222222%)
+Class 1 (lantana): Accuracy 142.0/213.0 (66.66666666666667%)
+Class 2 (negatives): Accuracy 1720.0/1821.0 (94.45359692476661%)
+Class 3 (parkinsonia): Accuracy 155.0/206.0 (75.24271844660194%)
+Class 4 (parthenium): Accuracy 119.0/204.0 (58.333333333333336%)
+Class 5 (prickly_acacia): Accuracy 164.0/212.0 (77.35849056603773%)
+Class 6 (rubber_vine): Accuracy 141.0/202.0 (69.8019801980198%)
+Class 7 (siam_weed): Accuracy 137.0/215.0 (63.72093023255814%)
+Class 8 (snake_weed): Accuracy 121.0/203.0 (59.60591133004926%)
+
+Epoch 29/999
+----------
+train Loss: 0.5924 Acc: 0.7974
+Class 0 (chinee_apple): Accuracy 367.0/675.0 (54.370370370370374%)
+Class 1 (lantana): Accuracy 441.0/637.0 (69.23076923076923%)
+Class 2 (negatives): Accuracy 4982.0/5463.0 (91.19531393007505%)
+Class 3 (parkinsonia): Accuracy 487.0/618.0 (78.80258899676376%)
+Class 4 (parthenium): Accuracy 376.0/613.0 (61.33768352365416%)
+Class 5 (prickly_acacia): Accuracy 486.0/637.0 (76.29513343799059%)
+Class 6 (rubber_vine): Accuracy 427.0/605.0 (70.57851239669421%)
+Class 7 (siam_weed): Accuracy 457.0/644.0 (70.96273291925466%)
+Class 8 (snake_weed): Accuracy 350.0/609.0 (57.47126436781609%)
+val Loss: 0.5845 Acc: 0.8063
+Class 0 (chinee_apple): Accuracy 132.0/225.0 (58.666666666666664%)
+Class 1 (lantana): Accuracy 114.0/213.0 (53.521126760563384%)
+Class 2 (negatives): Accuracy 1715.0/1821.0 (94.1790225151016%)
+Class 3 (parkinsonia): Accuracy 157.0/206.0 (76.2135922330097%)
+Class 4 (parthenium): Accuracy 136.0/204.0 (66.66666666666667%)
+Class 5 (prickly_acacia): Accuracy 167.0/212.0 (78.77358490566037%)
+Class 6 (rubber_vine): Accuracy 146.0/202.0 (72.27722772277228%)
+Class 7 (siam_weed): Accuracy 133.0/215.0 (61.86046511627907%)
+Class 8 (snake_weed): Accuracy 123.0/203.0 (60.59113300492611%)
+
+Epoch 30/999
+----------
+train Loss: 0.5814 Acc: 0.7977
+Class 0 (chinee_apple): Accuracy 381.0/675.0 (56.44444444444444%)
+Class 1 (lantana): Accuracy 433.0/637.0 (67.97488226059654%)
+Class 2 (negatives): Accuracy 4993.0/5463.0 (91.39666849716274%)
+Class 3 (parkinsonia): Accuracy 480.0/618.0 (77.66990291262135%)
+Class 4 (parthenium): Accuracy 394.0/613.0 (64.27406199021208%)
+Class 5 (prickly_acacia): Accuracy 498.0/637.0 (78.1789638932496%)
+Class 6 (rubber_vine): Accuracy 398.0/605.0 (65.78512396694215%)
+Class 7 (siam_weed): Accuracy 469.0/644.0 (72.82608695652173%)
+Class 8 (snake_weed): Accuracy 331.0/609.0 (54.35139573070607%)
+val Loss: 0.5752 Acc: 0.8118
+Class 0 (chinee_apple): Accuracy 143.0/225.0 (63.55555555555556%)
+Class 1 (lantana): Accuracy 129.0/213.0 (60.563380281690144%)
+Class 2 (negatives): Accuracy 1707.0/1821.0 (93.73970345963757%)
+Class 3 (parkinsonia): Accuracy 166.0/206.0 (80.58252427184466%)
+Class 4 (parthenium): Accuracy 141.0/204.0 (69.11764705882354%)
+Class 5 (prickly_acacia): Accuracy 170.0/212.0 (80.18867924528301%)
+Class 6 (rubber_vine): Accuracy 143.0/202.0 (70.79207920792079%)
+Class 7 (siam_weed): Accuracy 126.0/215.0 (58.604651162790695%)
+Class 8 (snake_weed): Accuracy 117.0/203.0 (57.635467980295566%)
+
+Epoch 31/999
+----------
+train Loss: 0.5886 Acc: 0.7989
+Class 0 (chinee_apple): Accuracy 377.0/675.0 (55.851851851851855%)
+Class 1 (lantana): Accuracy 431.0/637.0 (67.66091051805337%)
+Class 2 (negatives): Accuracy 4991.0/5463.0 (91.36005857587406%)
+Class 3 (parkinsonia): Accuracy 501.0/618.0 (81.06796116504854%)
+Class 4 (parthenium): Accuracy 395.0/613.0 (64.43719412724306%)
+Class 5 (prickly_acacia): Accuracy 491.0/637.0 (77.0800627943485%)
+Class 6 (rubber_vine): Accuracy 413.0/605.0 (68.26446280991736%)
+Class 7 (siam_weed): Accuracy 447.0/644.0 (69.40993788819875%)
+Class 8 (snake_weed): Accuracy 343.0/609.0 (56.32183908045977%)
+val Loss: 0.5684 Acc: 0.8118
+Class 0 (chinee_apple): Accuracy 145.0/225.0 (64.44444444444444%)
+Class 1 (lantana): Accuracy 143.0/213.0 (67.13615023474179%)
+Class 2 (negatives): Accuracy 1702.0/1821.0 (93.46512904997255%)
+Class 3 (parkinsonia): Accuracy 160.0/206.0 (77.66990291262135%)
+Class 4 (parthenium): Accuracy 135.0/204.0 (66.17647058823529%)
+Class 5 (prickly_acacia): Accuracy 164.0/212.0 (77.35849056603773%)
+Class 6 (rubber_vine): Accuracy 143.0/202.0 (70.79207920792079%)
+Class 7 (siam_weed): Accuracy 134.0/215.0 (62.325581395348834%)
+Class 8 (snake_weed): Accuracy 116.0/203.0 (57.142857142857146%)
+
+Epoch 32/999
+----------
+train Loss: 0.5798 Acc: 0.8033
+Class 0 (chinee_apple): Accuracy 409.0/675.0 (60.592592592592595%)
+Class 1 (lantana): Accuracy 433.0/637.0 (67.97488226059654%)
+Class 2 (negatives): Accuracy 4967.0/5463.0 (90.92073952041004%)
+Class 3 (parkinsonia): Accuracy 473.0/618.0 (76.53721682847896%)
+Class 4 (parthenium): Accuracy 414.0/613.0 (67.53670473083197%)
+Class 5 (prickly_acacia): Accuracy 496.0/637.0 (77.86499215070644%)
+Class 6 (rubber_vine): Accuracy 431.0/605.0 (71.2396694214876%)
+Class 7 (siam_weed): Accuracy 441.0/644.0 (68.47826086956522%)
+Class 8 (snake_weed): Accuracy 371.0/609.0 (60.91954022988506%)
+val Loss: 0.5715 Acc: 0.8043
+Class 0 (chinee_apple): Accuracy 133.0/225.0 (59.111111111111114%)
+Class 1 (lantana): Accuracy 154.0/213.0 (72.30046948356808%)
+Class 2 (negatives): Accuracy 1679.0/1821.0 (92.20208676551346%)
+Class 3 (parkinsonia): Accuracy 175.0/206.0 (84.95145631067962%)
+Class 4 (parthenium): Accuracy 122.0/204.0 (59.80392156862745%)
+Class 5 (prickly_acacia): Accuracy 167.0/212.0 (78.77358490566037%)
+Class 6 (rubber_vine): Accuracy 138.0/202.0 (68.31683168316832%)
+Class 7 (siam_weed): Accuracy 144.0/215.0 (66.97674418604652%)
+Class 8 (snake_weed): Accuracy 104.0/203.0 (51.23152709359606%)
+
+Epoch 33/999
+----------
+train Loss: 0.5788 Acc: 0.8005
+Class 0 (chinee_apple): Accuracy 396.0/675.0 (58.666666666666664%)
+Class 1 (lantana): Accuracy 442.0/637.0 (69.38775510204081%)
+Class 2 (negatives): Accuracy 4977.0/5463.0 (91.10378912685337%)
+Class 3 (parkinsonia): Accuracy 498.0/618.0 (80.58252427184466%)
+Class 4 (parthenium): Accuracy 409.0/613.0 (66.721044045677%)
+Class 5 (prickly_acacia): Accuracy 473.0/637.0 (74.25431711145997%)
+Class 6 (rubber_vine): Accuracy 417.0/605.0 (68.92561983471074%)
+Class 7 (siam_weed): Accuracy 444.0/644.0 (68.94409937888199%)
+Class 8 (snake_weed): Accuracy 350.0/609.0 (57.47126436781609%)
+val Loss: 0.5691 Acc: 0.8061
+Class 0 (chinee_apple): Accuracy 132.0/225.0 (58.666666666666664%)
+Class 1 (lantana): Accuracy 150.0/213.0 (70.4225352112676%)
+Class 2 (negatives): Accuracy 1699.0/1821.0 (93.30038440417353%)
+Class 3 (parkinsonia): Accuracy 163.0/206.0 (79.12621359223301%)
+Class 4 (parthenium): Accuracy 108.0/204.0 (52.94117647058823%)
+Class 5 (prickly_acacia): Accuracy 172.0/212.0 (81.13207547169812%)
+Class 6 (rubber_vine): Accuracy 140.0/202.0 (69.3069306930693%)
+Class 7 (siam_weed): Accuracy 137.0/215.0 (63.72093023255814%)
+Class 8 (snake_weed): Accuracy 121.0/203.0 (59.60591133004926%)
+
+Epoch 34/999
+----------
+train Loss: 0.5841 Acc: 0.7980
+Class 0 (chinee_apple): Accuracy 402.0/675.0 (59.55555555555556%)
+Class 1 (lantana): Accuracy 422.0/637.0 (66.2480376766091%)
+Class 2 (negatives): Accuracy 4960.0/5463.0 (90.79260479589969%)
+Class 3 (parkinsonia): Accuracy 501.0/618.0 (81.06796116504854%)
+Class 4 (parthenium): Accuracy 391.0/613.0 (63.784665579119086%)
+Class 5 (prickly_acacia): Accuracy 491.0/637.0 (77.0800627943485%)
+Class 6 (rubber_vine): Accuracy 415.0/605.0 (68.59504132231405%)
+Class 7 (siam_weed): Accuracy 468.0/644.0 (72.67080745341615%)
+Class 8 (snake_weed): Accuracy 330.0/609.0 (54.1871921182266%)
+val Loss: 0.5629 Acc: 0.8072
+Class 0 (chinee_apple): Accuracy 131.0/225.0 (58.22222222222222%)
+Class 1 (lantana): Accuracy 152.0/213.0 (71.36150234741784%)
+Class 2 (negatives): Accuracy 1695.0/1821.0 (93.08072487644152%)
+Class 3 (parkinsonia): Accuracy 158.0/206.0 (76.69902912621359%)
+Class 4 (parthenium): Accuracy 125.0/204.0 (61.27450980392157%)
+Class 5 (prickly_acacia): Accuracy 172.0/212.0 (81.13207547169812%)
+Class 6 (rubber_vine): Accuracy 142.0/202.0 (70.29702970297029%)
+Class 7 (siam_weed): Accuracy 135.0/215.0 (62.7906976744186%)
+Class 8 (snake_weed): Accuracy 116.0/203.0 (57.142857142857146%)
+
+Epoch 35/999
+----------
+train Loss: 0.5728 Acc: 0.8056
+Class 0 (chinee_apple): Accuracy 398.0/675.0 (58.96296296296296%)
+Class 1 (lantana): Accuracy 428.0/637.0 (67.18995290423862%)
+Class 2 (negatives): Accuracy 5015.0/5463.0 (91.79937763133809%)
+Class 3 (parkinsonia): Accuracy 496.0/618.0 (80.2588996763754%)
+Class 4 (parthenium): Accuracy 396.0/613.0 (64.60032626427406%)
+Class 5 (prickly_acacia): Accuracy 510.0/637.0 (80.06279434850863%)
+Class 6 (rubber_vine): Accuracy 426.0/605.0 (70.41322314049587%)
+Class 7 (siam_weed): Accuracy 443.0/644.0 (68.7888198757764%)
+Class 8 (snake_weed): Accuracy 348.0/609.0 (57.142857142857146%)
+val Loss: 0.5596 Acc: 0.8098
+Class 0 (chinee_apple): Accuracy 127.0/225.0 (56.44444444444444%)
+Class 1 (lantana): Accuracy 138.0/213.0 (64.78873239436619%)
+Class 2 (negatives): Accuracy 1699.0/1821.0 (93.30038440417353%)
+Class 3 (parkinsonia): Accuracy 172.0/206.0 (83.49514563106796%)
+Class 4 (parthenium): Accuracy 132.0/204.0 (64.70588235294117%)
+Class 5 (prickly_acacia): Accuracy 160.0/212.0 (75.47169811320755%)
+Class 6 (rubber_vine): Accuracy 143.0/202.0 (70.79207920792079%)
+Class 7 (siam_weed): Accuracy 145.0/215.0 (67.44186046511628%)
+Class 8 (snake_weed): Accuracy 119.0/203.0 (58.62068965517241%)
+
+Epoch 36/999
+----------
+train Loss: 0.5682 Acc: 0.8076
+Class 0 (chinee_apple): Accuracy 399.0/675.0 (59.111111111111114%)
+Class 1 (lantana): Accuracy 456.0/637.0 (71.58555729984302%)
+Class 2 (negatives): Accuracy 4992.0/5463.0 (91.37836353651839%)
+Class 3 (parkinsonia): Accuracy 495.0/618.0 (80.09708737864078%)
+Class 4 (parthenium): Accuracy 411.0/613.0 (67.04730831973899%)
+Class 5 (prickly_acacia): Accuracy 501.0/637.0 (78.64992150706436%)
+Class 6 (rubber_vine): Accuracy 439.0/605.0 (72.56198347107438%)
+Class 7 (siam_weed): Accuracy 444.0/644.0 (68.94409937888199%)
+Class 8 (snake_weed): Accuracy 344.0/609.0 (56.48604269293924%)
+val Loss: 0.5736 Acc: 0.7995
+Class 0 (chinee_apple): Accuracy 130.0/225.0 (57.77777777777778%)
+Class 1 (lantana): Accuracy 127.0/213.0 (59.624413145539904%)
+Class 2 (negatives): Accuracy 1717.0/1821.0 (94.2888522789676%)
+Class 3 (parkinsonia): Accuracy 157.0/206.0 (76.2135922330097%)
+Class 4 (parthenium): Accuracy 108.0/204.0 (52.94117647058823%)
+Class 5 (prickly_acacia): Accuracy 164.0/212.0 (77.35849056603773%)
+Class 6 (rubber_vine): Accuracy 127.0/202.0 (62.87128712871287%)
+Class 7 (siam_weed): Accuracy 147.0/215.0 (68.37209302325581%)
+Class 8 (snake_weed): Accuracy 122.0/203.0 (60.09852216748769%)
+
+Epoch 37/999
+----------
+train Loss: 0.5660 Acc: 0.8086
+Class 0 (chinee_apple): Accuracy 407.0/675.0 (60.2962962962963%)
+Class 1 (lantana): Accuracy 446.0/637.0 (70.01569858712716%)
+Class 2 (negatives): Accuracy 4991.0/5463.0 (91.36005857587406%)
+Class 3 (parkinsonia): Accuracy 502.0/618.0 (81.22977346278317%)
+Class 4 (parthenium): Accuracy 396.0/613.0 (64.60032626427406%)
+Class 5 (prickly_acacia): Accuracy 511.0/637.0 (80.21978021978022%)
+Class 6 (rubber_vine): Accuracy 437.0/605.0 (72.23140495867769%)
+Class 7 (siam_weed): Accuracy 451.0/644.0 (70.03105590062111%)
+Class 8 (snake_weed): Accuracy 350.0/609.0 (57.47126436781609%)
+val Loss: 0.5658 Acc: 0.8072
+Class 0 (chinee_apple): Accuracy 135.0/225.0 (60.0%)
+Class 1 (lantana): Accuracy 138.0/213.0 (64.78873239436619%)
+Class 2 (negatives): Accuracy 1720.0/1821.0 (94.45359692476661%)
+Class 3 (parkinsonia): Accuracy 150.0/206.0 (72.81553398058253%)
+Class 4 (parthenium): Accuracy 142.0/204.0 (69.6078431372549%)
+Class 5 (prickly_acacia): Accuracy 163.0/212.0 (76.88679245283019%)
+Class 6 (rubber_vine): Accuracy 126.0/202.0 (62.37623762376238%)
+Class 7 (siam_weed): Accuracy 141.0/215.0 (65.5813953488372%)
+Class 8 (snake_weed): Accuracy 111.0/203.0 (54.679802955665025%)
+
+Epoch 38/999
+----------
+train Loss: 0.5660 Acc: 0.8083
+Class 0 (chinee_apple): Accuracy 406.0/675.0 (60.148148148148145%)
+Class 1 (lantana): Accuracy 439.0/637.0 (68.91679748822607%)
+Class 2 (negatives): Accuracy 5020.0/5463.0 (91.89090243455976%)
+Class 3 (parkinsonia): Accuracy 483.0/618.0 (78.15533980582525%)
+Class 4 (parthenium): Accuracy 383.0/613.0 (62.47960848287113%)
+Class 5 (prickly_acacia): Accuracy 490.0/637.0 (76.92307692307692%)
+Class 6 (rubber_vine): Accuracy 429.0/605.0 (70.9090909090909%)
+Class 7 (siam_weed): Accuracy 482.0/644.0 (74.84472049689441%)
+Class 8 (snake_weed): Accuracy 356.0/609.0 (58.45648604269294%)
+val Loss: 0.5745 Acc: 0.8029
+Class 0 (chinee_apple): Accuracy 135.0/225.0 (60.0%)
+Class 1 (lantana): Accuracy 123.0/213.0 (57.74647887323944%)
+Class 2 (negatives): Accuracy 1720.0/1821.0 (94.45359692476661%)
+Class 3 (parkinsonia): Accuracy 164.0/206.0 (79.6116504854369%)
+Class 4 (parthenium): Accuracy 143.0/204.0 (70.09803921568627%)
+Class 5 (prickly_acacia): Accuracy 170.0/212.0 (80.18867924528301%)
+Class 6 (rubber_vine): Accuracy 126.0/202.0 (62.37623762376238%)
+Class 7 (siam_weed): Accuracy 129.0/215.0 (60.0%)
+Class 8 (snake_weed): Accuracy 101.0/203.0 (49.75369458128079%)
+
+Epoch 39/999
+----------
+train Loss: 0.5556 Acc: 0.8104
+Class 0 (chinee_apple): Accuracy 403.0/675.0 (59.7037037037037%)
+Class 1 (lantana): Accuracy 441.0/637.0 (69.23076923076923%)
+Class 2 (negatives): Accuracy 4989.0/5463.0 (91.32344865458539%)
+Class 3 (parkinsonia): Accuracy 500.0/618.0 (80.90614886731392%)
+Class 4 (parthenium): Accuracy 433.0/613.0 (70.63621533442088%)
+Class 5 (prickly_acacia): Accuracy 502.0/637.0 (78.80690737833595%)
+Class 6 (rubber_vine): Accuracy 434.0/605.0 (71.73553719008264%)
+Class 7 (siam_weed): Accuracy 466.0/644.0 (72.36024844720497%)
+Class 8 (snake_weed): Accuracy 342.0/609.0 (56.1576354679803%)
+val Loss: 0.5817 Acc: 0.7955
+Class 0 (chinee_apple): Accuracy 134.0/225.0 (59.55555555555556%)
+Class 1 (lantana): Accuracy 126.0/213.0 (59.15492957746479%)
+Class 2 (negatives): Accuracy 1746.0/1821.0 (95.88138385502471%)
+Class 3 (parkinsonia): Accuracy 155.0/206.0 (75.24271844660194%)
+Class 4 (parthenium): Accuracy 108.0/204.0 (52.94117647058823%)
+Class 5 (prickly_acacia): Accuracy 151.0/212.0 (71.22641509433963%)
+Class 6 (rubber_vine): Accuracy 128.0/202.0 (63.366336633663366%)
+Class 7 (siam_weed): Accuracy 125.0/215.0 (58.13953488372093%)
+Class 8 (snake_weed): Accuracy 112.0/203.0 (55.172413793103445%)
+
+Epoch 40/999
+----------
+train Loss: 0.5601 Acc: 0.8074
+Class 0 (chinee_apple): Accuracy 411.0/675.0 (60.888888888888886%)
+Class 1 (lantana): Accuracy 412.0/637.0 (64.67817896389325%)
+Class 2 (negatives): Accuracy 5015.0/5463.0 (91.79937763133809%)
+Class 3 (parkinsonia): Accuracy 508.0/618.0 (82.20064724919094%)
+Class 4 (parthenium): Accuracy 414.0/613.0 (67.53670473083197%)
+Class 5 (prickly_acacia): Accuracy 511.0/637.0 (80.21978021978022%)
+Class 6 (rubber_vine): Accuracy 402.0/605.0 (66.44628099173553%)
+Class 7 (siam_weed): Accuracy 471.0/644.0 (73.13664596273291%)
+Class 8 (snake_weed): Accuracy 335.0/609.0 (55.008210180623976%)
+val Loss: 0.5770 Acc: 0.8018
+Class 0 (chinee_apple): Accuracy 116.0/225.0 (51.55555555555556%)
+Class 1 (lantana): Accuracy 130.0/213.0 (61.032863849765256%)
+Class 2 (negatives): Accuracy 1745.0/1821.0 (95.8264689730917%)
+Class 3 (parkinsonia): Accuracy 152.0/206.0 (73.7864077669903%)
+Class 4 (parthenium): Accuracy 122.0/204.0 (59.80392156862745%)
+Class 5 (prickly_acacia): Accuracy 161.0/212.0 (75.94339622641509%)
+Class 6 (rubber_vine): Accuracy 137.0/202.0 (67.82178217821782%)
+Class 7 (siam_weed): Accuracy 122.0/215.0 (56.74418604651163%)
+Class 8 (snake_weed): Accuracy 122.0/203.0 (60.09852216748769%)
+
+Epoch 41/999
+----------
+train Loss: 0.5626 Acc: 0.8077
+Class 0 (chinee_apple): Accuracy 419.0/675.0 (62.074074074074076%)
+Class 1 (lantana): Accuracy 444.0/637.0 (69.70172684458399%)
+Class 2 (negatives): Accuracy 5021.0/5463.0 (91.9092073952041%)
+Class 3 (parkinsonia): Accuracy 489.0/618.0 (79.12621359223301%)
+Class 4 (parthenium): Accuracy 411.0/613.0 (67.04730831973899%)
+Class 5 (prickly_acacia): Accuracy 475.0/637.0 (74.56828885400314%)
+Class 6 (rubber_vine): Accuracy 415.0/605.0 (68.59504132231405%)
+Class 7 (siam_weed): Accuracy 463.0/644.0 (71.8944099378882%)
+Class 8 (snake_weed): Accuracy 345.0/609.0 (56.65024630541872%)
+val Loss: 0.5505 Acc: 0.8152
+Class 0 (chinee_apple): Accuracy 127.0/225.0 (56.44444444444444%)
+Class 1 (lantana): Accuracy 141.0/213.0 (66.19718309859155%)
+Class 2 (negatives): Accuracy 1700.0/1821.0 (93.35529928610653%)
+Class 3 (parkinsonia): Accuracy 176.0/206.0 (85.4368932038835%)
+Class 4 (parthenium): Accuracy 131.0/204.0 (64.2156862745098%)
+Class 5 (prickly_acacia): Accuracy 161.0/212.0 (75.94339622641509%)
+Class 6 (rubber_vine): Accuracy 143.0/202.0 (70.79207920792079%)
+Class 7 (siam_weed): Accuracy 154.0/215.0 (71.62790697674419%)
+Class 8 (snake_weed): Accuracy 121.0/203.0 (59.60591133004926%)
+
+Epoch 42/999
+----------
+train Loss: 0.5511 Acc: 0.8097
+Class 0 (chinee_apple): Accuracy 402.0/675.0 (59.55555555555556%)
+Class 1 (lantana): Accuracy 438.0/637.0 (68.75981161695448%)
+Class 2 (negatives): Accuracy 5018.0/5463.0 (91.85429251327109%)
+Class 3 (parkinsonia): Accuracy 492.0/618.0 (79.6116504854369%)
+Class 4 (parthenium): Accuracy 415.0/613.0 (67.69983686786297%)
+Class 5 (prickly_acacia): Accuracy 492.0/637.0 (77.2370486656201%)
+Class 6 (rubber_vine): Accuracy 423.0/605.0 (69.91735537190083%)
+Class 7 (siam_weed): Accuracy 472.0/644.0 (73.2919254658385%)
+Class 8 (snake_weed): Accuracy 351.0/609.0 (57.635467980295566%)
+val Loss: 0.5419 Acc: 0.8163
+Class 0 (chinee_apple): Accuracy 133.0/225.0 (59.111111111111114%)
+Class 1 (lantana): Accuracy 141.0/213.0 (66.19718309859155%)
+Class 2 (negatives): Accuracy 1708.0/1821.0 (93.79461834157057%)
+Class 3 (parkinsonia): Accuracy 168.0/206.0 (81.55339805825243%)
+Class 4 (parthenium): Accuracy 136.0/204.0 (66.66666666666667%)
+Class 5 (prickly_acacia): Accuracy 163.0/212.0 (76.88679245283019%)
+Class 6 (rubber_vine): Accuracy 145.0/202.0 (71.78217821782178%)
+Class 7 (siam_weed): Accuracy 147.0/215.0 (68.37209302325581%)
+Class 8 (snake_weed): Accuracy 117.0/203.0 (57.635467980295566%)
+
+Epoch 43/999
+----------
+train Loss: 0.5515 Acc: 0.8150
+Class 0 (chinee_apple): Accuracy 404.0/675.0 (59.851851851851855%)
+Class 1 (lantana): Accuracy 450.0/637.0 (70.6436420722135%)
+Class 2 (negatives): Accuracy 5003.0/5463.0 (91.57971810360608%)
+Class 3 (parkinsonia): Accuracy 507.0/618.0 (82.03883495145631%)
+Class 4 (parthenium): Accuracy 425.0/613.0 (69.33115823817292%)
+Class 5 (prickly_acacia): Accuracy 510.0/637.0 (80.06279434850863%)
+Class 6 (rubber_vine): Accuracy 437.0/605.0 (72.23140495867769%)
+Class 7 (siam_weed): Accuracy 477.0/644.0 (74.06832298136646%)
+Class 8 (snake_weed): Accuracy 345.0/609.0 (56.65024630541872%)
+val Loss: 0.5468 Acc: 0.8158
+Class 0 (chinee_apple): Accuracy 127.0/225.0 (56.44444444444444%)
+Class 1 (lantana): Accuracy 144.0/213.0 (67.6056338028169%)
+Class 2 (negatives): Accuracy 1710.0/1821.0 (93.90444810543657%)
+Class 3 (parkinsonia): Accuracy 169.0/206.0 (82.03883495145631%)
+Class 4 (parthenium): Accuracy 148.0/204.0 (72.54901960784314%)
+Class 5 (prickly_acacia): Accuracy 157.0/212.0 (74.05660377358491%)
+Class 6 (rubber_vine): Accuracy 143.0/202.0 (70.79207920792079%)
+Class 7 (siam_weed): Accuracy 131.0/215.0 (60.93023255813954%)
+Class 8 (snake_weed): Accuracy 127.0/203.0 (62.5615763546798%)
+
+Epoch 44/999
+----------
+train Loss: 0.5524 Acc: 0.8115
+Class 0 (chinee_apple): Accuracy 374.0/675.0 (55.407407407407405%)
+Class 1 (lantana): Accuracy 457.0/637.0 (71.7425431711146%)
+Class 2 (negatives): Accuracy 5001.0/5463.0 (91.54310818231741%)
+Class 3 (parkinsonia): Accuracy 524.0/618.0 (84.78964401294499%)
+Class 4 (parthenium): Accuracy 430.0/613.0 (70.1468189233279%)
+Class 5 (prickly_acacia): Accuracy 485.0/637.0 (76.138147566719%)
+Class 6 (rubber_vine): Accuracy 435.0/605.0 (71.90082644628099%)
+Class 7 (siam_weed): Accuracy 460.0/644.0 (71.42857142857143%)
+Class 8 (snake_weed): Accuracy 356.0/609.0 (58.45648604269294%)
+val Loss: 0.5466 Acc: 0.8141
+Class 0 (chinee_apple): Accuracy 140.0/225.0 (62.22222222222222%)
+Class 1 (lantana): Accuracy 144.0/213.0 (67.6056338028169%)
+Class 2 (negatives): Accuracy 1717.0/1821.0 (94.2888522789676%)
+Class 3 (parkinsonia): Accuracy 160.0/206.0 (77.66990291262135%)
+Class 4 (parthenium): Accuracy 138.0/204.0 (67.6470588235294%)
+Class 5 (prickly_acacia): Accuracy 163.0/212.0 (76.88679245283019%)
+Class 6 (rubber_vine): Accuracy 132.0/202.0 (65.34653465346534%)
+Class 7 (siam_weed): Accuracy 133.0/215.0 (61.86046511627907%)
+Class 8 (snake_weed): Accuracy 123.0/203.0 (60.59113300492611%)
+
+Epoch 45/999
+----------
+train Loss: 0.5440 Acc: 0.8142
+Class 0 (chinee_apple): Accuracy 419.0/675.0 (62.074074074074076%)
+Class 1 (lantana): Accuracy 441.0/637.0 (69.23076923076923%)
+Class 2 (negatives): Accuracy 5028.0/5463.0 (92.03734211971444%)
+Class 3 (parkinsonia): Accuracy 512.0/618.0 (82.84789644012945%)
+Class 4 (parthenium): Accuracy 407.0/613.0 (66.394779771615%)
+Class 5 (prickly_acacia): Accuracy 490.0/637.0 (76.92307692307692%)
+Class 6 (rubber_vine): Accuracy 427.0/605.0 (70.57851239669421%)
+Class 7 (siam_weed): Accuracy 464.0/644.0 (72.04968944099379%)
+Class 8 (snake_weed): Accuracy 362.0/609.0 (59.441707717569784%)
+val Loss: 0.5461 Acc: 0.8132
+Class 0 (chinee_apple): Accuracy 127.0/225.0 (56.44444444444444%)
+Class 1 (lantana): Accuracy 143.0/213.0 (67.13615023474179%)
+Class 2 (negatives): Accuracy 1706.0/1821.0 (93.68478857770455%)
+Class 3 (parkinsonia): Accuracy 164.0/206.0 (79.6116504854369%)
+Class 4 (parthenium): Accuracy 142.0/204.0 (69.6078431372549%)
+Class 5 (prickly_acacia): Accuracy 166.0/212.0 (78.30188679245283%)
+Class 6 (rubber_vine): Accuracy 131.0/202.0 (64.85148514851485%)
+Class 7 (siam_weed): Accuracy 140.0/215.0 (65.11627906976744%)
+Class 8 (snake_weed): Accuracy 128.0/203.0 (63.05418719211823%)
+
+Epoch 46/999
+----------
+train Loss: 0.5469 Acc: 0.8107
+Class 0 (chinee_apple): Accuracy 421.0/675.0 (62.370370370370374%)
+Class 1 (lantana): Accuracy 446.0/637.0 (70.01569858712716%)
+Class 2 (negatives): Accuracy 5002.0/5463.0 (91.56141314296174%)
+Class 3 (parkinsonia): Accuracy 498.0/618.0 (80.58252427184466%)
+Class 4 (parthenium): Accuracy 414.0/613.0 (67.53670473083197%)
+Class 5 (prickly_acacia): Accuracy 502.0/637.0 (78.80690737833595%)
+Class 6 (rubber_vine): Accuracy 426.0/605.0 (70.41322314049587%)
+Class 7 (siam_weed): Accuracy 450.0/644.0 (69.87577639751552%)
+Class 8 (snake_weed): Accuracy 354.0/609.0 (58.12807881773399%)
+val Loss: 0.5582 Acc: 0.8083
+Class 0 (chinee_apple): Accuracy 104.0/225.0 (46.22222222222222%)
+Class 1 (lantana): Accuracy 148.0/213.0 (69.48356807511738%)
+Class 2 (negatives): Accuracy 1725.0/1821.0 (94.72817133443164%)
+Class 3 (parkinsonia): Accuracy 170.0/206.0 (82.52427184466019%)
+Class 4 (parthenium): Accuracy 126.0/204.0 (61.76470588235294%)
+Class 5 (prickly_acacia): Accuracy 167.0/212.0 (78.77358490566037%)
+Class 6 (rubber_vine): Accuracy 132.0/202.0 (65.34653465346534%)
+Class 7 (siam_weed): Accuracy 132.0/215.0 (61.395348837209305%)
+Class 8 (snake_weed): Accuracy 126.0/203.0 (62.06896551724138%)
+
+Epoch 47/999
+----------
+train Loss: 0.5408 Acc: 0.8156
+Class 0 (chinee_apple): Accuracy 400.0/675.0 (59.25925925925926%)
+Class 1 (lantana): Accuracy 442.0/637.0 (69.38775510204081%)
+Class 2 (negatives): Accuracy 5037.0/5463.0 (92.20208676551346%)
+Class 3 (parkinsonia): Accuracy 516.0/618.0 (83.49514563106796%)
+Class 4 (parthenium): Accuracy 438.0/613.0 (71.45187601957586%)
+Class 5 (prickly_acacia): Accuracy 504.0/637.0 (79.12087912087912%)
+Class 6 (rubber_vine): Accuracy 428.0/605.0 (70.74380165289256%)
+Class 7 (siam_weed): Accuracy 445.0/644.0 (69.09937888198758%)
+Class 8 (snake_weed): Accuracy 355.0/609.0 (58.29228243021346%)
+val Loss: 0.5515 Acc: 0.8109
+Class 0 (chinee_apple): Accuracy 124.0/225.0 (55.111111111111114%)
+Class 1 (lantana): Accuracy 142.0/213.0 (66.66666666666667%)
+Class 2 (negatives): Accuracy 1727.0/1821.0 (94.83800109829764%)
+Class 3 (parkinsonia): Accuracy 159.0/206.0 (77.18446601941747%)
+Class 4 (parthenium): Accuracy 113.0/204.0 (55.3921568627451%)
+Class 5 (prickly_acacia): Accuracy 165.0/212.0 (77.83018867924528%)
+Class 6 (rubber_vine): Accuracy 142.0/202.0 (70.29702970297029%)
+Class 7 (siam_weed): Accuracy 137.0/215.0 (63.72093023255814%)
+Class 8 (snake_weed): Accuracy 130.0/203.0 (64.03940886699507%)
+
+Epoch 48/999
+----------
+train Loss: 0.5445 Acc: 0.8108
+Class 0 (chinee_apple): Accuracy 412.0/675.0 (61.03703703703704%)
+Class 1 (lantana): Accuracy 455.0/637.0 (71.42857142857143%)
+Class 2 (negatives): Accuracy 4992.0/5463.0 (91.37836353651839%)
+Class 3 (parkinsonia): Accuracy 506.0/618.0 (81.87702265372168%)
+Class 4 (parthenium): Accuracy 419.0/613.0 (68.35236541598695%)
+Class 5 (prickly_acacia): Accuracy 495.0/637.0 (77.70800627943485%)
+Class 6 (rubber_vine): Accuracy 409.0/605.0 (67.60330578512396%)
+Class 7 (siam_weed): Accuracy 460.0/644.0 (71.42857142857143%)
+Class 8 (snake_weed): Accuracy 366.0/609.0 (60.09852216748769%)
+val Loss: 0.5434 Acc: 0.8132
+Class 0 (chinee_apple): Accuracy 132.0/225.0 (58.666666666666664%)
+Class 1 (lantana): Accuracy 138.0/213.0 (64.78873239436619%)
+Class 2 (negatives): Accuracy 1710.0/1821.0 (93.90444810543657%)
+Class 3 (parkinsonia): Accuracy 172.0/206.0 (83.49514563106796%)
+Class 4 (parthenium): Accuracy 121.0/204.0 (59.31372549019608%)
+Class 5 (prickly_acacia): Accuracy 166.0/212.0 (78.30188679245283%)
+Class 6 (rubber_vine): Accuracy 147.0/202.0 (72.77227722772277%)
+Class 7 (siam_weed): Accuracy 153.0/215.0 (71.16279069767442%)
+Class 8 (snake_weed): Accuracy 108.0/203.0 (53.20197044334975%)
+
+Epoch 49/999
+----------
+train Loss: 0.5517 Acc: 0.8117
+Class 0 (chinee_apple): Accuracy 397.0/675.0 (58.81481481481482%)
+Class 1 (lantana): Accuracy 446.0/637.0 (70.01569858712716%)
+Class 2 (negatives): Accuracy 4972.0/5463.0 (91.0122643236317%)
+Class 3 (parkinsonia): Accuracy 509.0/618.0 (82.36245954692556%)
+Class 4 (parthenium): Accuracy 427.0/613.0 (69.65742251223492%)
+Class 5 (prickly_acacia): Accuracy 489.0/637.0 (76.76609105180533%)
+Class 6 (rubber_vine): Accuracy 436.0/605.0 (72.06611570247934%)
+Class 7 (siam_weed): Accuracy 487.0/644.0 (75.62111801242236%)
+Class 8 (snake_weed): Accuracy 361.0/609.0 (59.277504105090316%)
+val Loss: 0.5538 Acc: 0.8075
+Class 0 (chinee_apple): Accuracy 146.0/225.0 (64.88888888888889%)
+Class 1 (lantana): Accuracy 124.0/213.0 (58.21596244131455%)
+Class 2 (negatives): Accuracy 1725.0/1821.0 (94.72817133443164%)
+Class 3 (parkinsonia): Accuracy 152.0/206.0 (73.7864077669903%)
+Class 4 (parthenium): Accuracy 127.0/204.0 (62.254901960784316%)
+Class 5 (prickly_acacia): Accuracy 173.0/212.0 (81.60377358490567%)
+Class 6 (rubber_vine): Accuracy 139.0/202.0 (68.81188118811882%)
+Class 7 (siam_weed): Accuracy 136.0/215.0 (63.25581395348837%)
+Class 8 (snake_weed): Accuracy 105.0/203.0 (51.724137931034484%)
+
+Epoch 50/999
+----------
+train Loss: 0.5451 Acc: 0.8108
+Class 0 (chinee_apple): Accuracy 410.0/675.0 (60.74074074074074%)
+Class 1 (lantana): Accuracy 443.0/637.0 (69.5447409733124%)
+Class 2 (negatives): Accuracy 5019.0/5463.0 (91.87259747391543%)
+Class 3 (parkinsonia): Accuracy 518.0/618.0 (83.81877022653721%)
+Class 4 (parthenium): Accuracy 398.0/613.0 (64.92659053833606%)
+Class 5 (prickly_acacia): Accuracy 496.0/637.0 (77.86499215070644%)
+Class 6 (rubber_vine): Accuracy 435.0/605.0 (71.90082644628099%)
+Class 7 (siam_weed): Accuracy 463.0/644.0 (71.8944099378882%)
+Class 8 (snake_weed): Accuracy 332.0/609.0 (54.51559934318555%)
+val Loss: 0.5457 Acc: 0.8098
+Class 0 (chinee_apple): Accuracy 130.0/225.0 (57.77777777777778%)
+Class 1 (lantana): Accuracy 142.0/213.0 (66.66666666666667%)
+Class 2 (negatives): Accuracy 1730.0/1821.0 (95.00274574409666%)
+Class 3 (parkinsonia): Accuracy 151.0/206.0 (73.30097087378641%)
+Class 4 (parthenium): Accuracy 128.0/204.0 (62.745098039215684%)
+Class 5 (prickly_acacia): Accuracy 168.0/212.0 (79.24528301886792%)
+Class 6 (rubber_vine): Accuracy 129.0/202.0 (63.86138613861386%)
+Class 7 (siam_weed): Accuracy 138.0/215.0 (64.18604651162791%)
+Class 8 (snake_weed): Accuracy 119.0/203.0 (58.62068965517241%)
+
+Epoch 51/999
+----------
+train Loss: 0.5387 Acc: 0.8156
+Class 0 (chinee_apple): Accuracy 405.0/675.0 (60.0%)
+Class 1 (lantana): Accuracy 451.0/637.0 (70.80062794348508%)
+Class 2 (negatives): Accuracy 5022.0/5463.0 (91.92751235584844%)
+Class 3 (parkinsonia): Accuracy 494.0/618.0 (79.93527508090615%)
+Class 4 (parthenium): Accuracy 429.0/613.0 (69.9836867862969%)
+Class 5 (prickly_acacia): Accuracy 488.0/637.0 (76.60910518053375%)
+Class 6 (rubber_vine): Accuracy 438.0/605.0 (72.39669421487604%)
+Class 7 (siam_weed): Accuracy 474.0/644.0 (73.6024844720497%)
+Class 8 (snake_weed): Accuracy 364.0/609.0 (59.770114942528735%)
+val Loss: 0.5335 Acc: 0.8155
+Class 0 (chinee_apple): Accuracy 146.0/225.0 (64.88888888888889%)
+Class 1 (lantana): Accuracy 146.0/213.0 (68.54460093896714%)
+Class 2 (negatives): Accuracy 1698.0/1821.0 (93.24546952224053%)
+Class 3 (parkinsonia): Accuracy 169.0/206.0 (82.03883495145631%)
+Class 4 (parthenium): Accuracy 133.0/204.0 (65.19607843137256%)
+Class 5 (prickly_acacia): Accuracy 169.0/212.0 (79.71698113207547%)
+Class 6 (rubber_vine): Accuracy 141.0/202.0 (69.8019801980198%)
+Class 7 (siam_weed): Accuracy 133.0/215.0 (61.86046511627907%)
+Class 8 (snake_weed): Accuracy 120.0/203.0 (59.11330049261084%)
+
+Epoch 52/999
+----------
+train Loss: 0.5359 Acc: 0.8186
+Class 0 (chinee_apple): Accuracy 413.0/675.0 (61.18518518518518%)
+Class 1 (lantana): Accuracy 457.0/637.0 (71.7425431711146%)
+Class 2 (negatives): Accuracy 5006.0/5463.0 (91.63463298553908%)
+Class 3 (parkinsonia): Accuracy 501.0/618.0 (81.06796116504854%)
+Class 4 (parthenium): Accuracy 425.0/613.0 (69.33115823817292%)
+Class 5 (prickly_acacia): Accuracy 527.0/637.0 (82.73155416012558%)
+Class 6 (rubber_vine): Accuracy 444.0/605.0 (73.38842975206612%)
+Class 7 (siam_weed): Accuracy 473.0/644.0 (73.4472049689441%)
+Class 8 (snake_weed): Accuracy 350.0/609.0 (57.47126436781609%)
+val Loss: 0.5386 Acc: 0.8123
+Class 0 (chinee_apple): Accuracy 142.0/225.0 (63.111111111111114%)
+Class 1 (lantana): Accuracy 146.0/213.0 (68.54460093896714%)
+Class 2 (negatives): Accuracy 1708.0/1821.0 (93.79461834157057%)
+Class 3 (parkinsonia): Accuracy 177.0/206.0 (85.92233009708738%)
+Class 4 (parthenium): Accuracy 122.0/204.0 (59.80392156862745%)
+Class 5 (prickly_acacia): Accuracy 158.0/212.0 (74.52830188679245%)
+Class 6 (rubber_vine): Accuracy 133.0/202.0 (65.84158415841584%)
+Class 7 (siam_weed): Accuracy 133.0/215.0 (61.86046511627907%)
+Class 8 (snake_weed): Accuracy 125.0/203.0 (61.576354679802954%)
+
+Epoch 53/999
+----------
+train Loss: 0.5323 Acc: 0.8176
+Class 0 (chinee_apple): Accuracy 425.0/675.0 (62.96296296296296%)
+Class 1 (lantana): Accuracy 436.0/637.0 (68.4458398744113%)
+Class 2 (negatives): Accuracy 5024.0/5463.0 (91.96412227713711%)
+Class 3 (parkinsonia): Accuracy 506.0/618.0 (81.87702265372168%)
+Class 4 (parthenium): Accuracy 411.0/613.0 (67.04730831973899%)
+Class 5 (prickly_acacia): Accuracy 518.0/637.0 (81.31868131868131%)
+Class 6 (rubber_vine): Accuracy 429.0/605.0 (70.9090909090909%)
+Class 7 (siam_weed): Accuracy 480.0/644.0 (74.53416149068323%)
+Class 8 (snake_weed): Accuracy 357.0/609.0 (58.62068965517241%)
+val Loss: 0.5334 Acc: 0.8161
+Class 0 (chinee_apple): Accuracy 131.0/225.0 (58.22222222222222%)
+Class 1 (lantana): Accuracy 151.0/213.0 (70.89201877934272%)
+Class 2 (negatives): Accuracy 1714.0/1821.0 (94.12410763316859%)
+Class 3 (parkinsonia): Accuracy 169.0/206.0 (82.03883495145631%)
+Class 4 (parthenium): Accuracy 133.0/204.0 (65.19607843137256%)
+Class 5 (prickly_acacia): Accuracy 165.0/212.0 (77.83018867924528%)
+Class 6 (rubber_vine): Accuracy 133.0/202.0 (65.84158415841584%)
+Class 7 (siam_weed): Accuracy 141.0/215.0 (65.5813953488372%)
+Class 8 (snake_weed): Accuracy 120.0/203.0 (59.11330049261084%)
+
+Epoch 54/999
+----------
+train Loss: 0.5252 Acc: 0.8214
+Class 0 (chinee_apple): Accuracy 429.0/675.0 (63.55555555555556%)
+Class 1 (lantana): Accuracy 458.0/637.0 (71.89952904238619%)
+Class 2 (negatives): Accuracy 5007.0/5463.0 (91.65293794618341%)
+Class 3 (parkinsonia): Accuracy 516.0/618.0 (83.49514563106796%)
+Class 4 (parthenium): Accuracy 428.0/613.0 (69.8205546492659%)
+Class 5 (prickly_acacia): Accuracy 498.0/637.0 (78.1789638932496%)
+Class 6 (rubber_vine): Accuracy 460.0/605.0 (76.03305785123968%)
+Class 7 (siam_weed): Accuracy 468.0/644.0 (72.67080745341615%)
+Class 8 (snake_weed): Accuracy 361.0/609.0 (59.277504105090316%)
+val Loss: 0.5437 Acc: 0.8081
+Class 0 (chinee_apple): Accuracy 135.0/225.0 (60.0%)
+Class 1 (lantana): Accuracy 147.0/213.0 (69.01408450704226%)
+Class 2 (negatives): Accuracy 1714.0/1821.0 (94.12410763316859%)
+Class 3 (parkinsonia): Accuracy 154.0/206.0 (74.75728155339806%)
+Class 4 (parthenium): Accuracy 122.0/204.0 (59.80392156862745%)
+Class 5 (prickly_acacia): Accuracy 174.0/212.0 (82.0754716981132%)
+Class 6 (rubber_vine): Accuracy 128.0/202.0 (63.366336633663366%)
+Class 7 (siam_weed): Accuracy 138.0/215.0 (64.18604651162791%)
+Class 8 (snake_weed): Accuracy 117.0/203.0 (57.635467980295566%)
+
+Epoch 55/999
+----------
+train Loss: 0.5284 Acc: 0.8183
+Class 0 (chinee_apple): Accuracy 395.0/675.0 (58.51851851851852%)
+Class 1 (lantana): Accuracy 463.0/637.0 (72.68445839874411%)
+Class 2 (negatives): Accuracy 5030.0/5463.0 (92.07395204100311%)
+Class 3 (parkinsonia): Accuracy 516.0/618.0 (83.49514563106796%)
+Class 4 (parthenium): Accuracy 409.0/613.0 (66.721044045677%)
+Class 5 (prickly_acacia): Accuracy 503.0/637.0 (78.96389324960754%)
+Class 6 (rubber_vine): Accuracy 432.0/605.0 (71.40495867768595%)
+Class 7 (siam_weed): Accuracy 484.0/644.0 (75.15527950310559%)
+Class 8 (snake_weed): Accuracy 361.0/609.0 (59.277504105090316%)
+val Loss: 0.5307 Acc: 0.8149
+Class 0 (chinee_apple): Accuracy 143.0/225.0 (63.55555555555556%)
+Class 1 (lantana): Accuracy 141.0/213.0 (66.19718309859155%)
+Class 2 (negatives): Accuracy 1714.0/1821.0 (94.12410763316859%)
+Class 3 (parkinsonia): Accuracy 162.0/206.0 (78.64077669902913%)
+Class 4 (parthenium): Accuracy 134.0/204.0 (65.68627450980392%)
+Class 5 (prickly_acacia): Accuracy 168.0/212.0 (79.24528301886792%)
+Class 6 (rubber_vine): Accuracy 136.0/202.0 (67.32673267326733%)
+Class 7 (siam_weed): Accuracy 142.0/215.0 (66.04651162790698%)
+Class 8 (snake_weed): Accuracy 113.0/203.0 (55.66502463054187%)
+
+Epoch 56/999
+----------
+train Loss: 0.5276 Acc: 0.8167
+Class 0 (chinee_apple): Accuracy 407.0/675.0 (60.2962962962963%)
+Class 1 (lantana): Accuracy 468.0/637.0 (73.46938775510205%)
+Class 2 (negatives): Accuracy 5010.0/5463.0 (91.70785282811642%)
+Class 3 (parkinsonia): Accuracy 515.0/618.0 (83.33333333333333%)
+Class 4 (parthenium): Accuracy 407.0/613.0 (66.394779771615%)
+Class 5 (prickly_acacia): Accuracy 500.0/637.0 (78.49293563579278%)
+Class 6 (rubber_vine): Accuracy 434.0/605.0 (71.73553719008264%)
+Class 7 (siam_weed): Accuracy 475.0/644.0 (73.75776397515529%)
+Class 8 (snake_weed): Accuracy 360.0/609.0 (59.11330049261084%)
+val Loss: 0.5444 Acc: 0.8072
+Class 0 (chinee_apple): Accuracy 136.0/225.0 (60.44444444444444%)
+Class 1 (lantana): Accuracy 129.0/213.0 (60.563380281690144%)
+Class 2 (negatives): Accuracy 1736.0/1821.0 (95.33223503569468%)
+Class 3 (parkinsonia): Accuracy 159.0/206.0 (77.18446601941747%)
+Class 4 (parthenium): Accuracy 118.0/204.0 (57.84313725490196%)
+Class 5 (prickly_acacia): Accuracy 166.0/212.0 (78.30188679245283%)
+Class 6 (rubber_vine): Accuracy 137.0/202.0 (67.82178217821782%)
+Class 7 (siam_weed): Accuracy 139.0/215.0 (64.65116279069767%)
+Class 8 (snake_weed): Accuracy 106.0/203.0 (52.216748768472904%)
+
+Epoch 57/999
+----------
