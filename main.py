@@ -109,7 +109,10 @@ def train_model(model, dataloaders, criterion, optim_scheduler, num_epochs, devi
 
 data_transforms = {
     'train': transforms.Compose([
-        transforms.RandomResizedCrop(input_size),
+        transforms.ColorJitter(brightness=.25, contrast=.25, saturation=.25, hue=0.1),
+        transforms.RandomGrayscale(),
+        transforms.RandomAffine(degrees=180, translate=(0.2, 0.2), shear=(-30,30)),
+        transforms.RandomResizedCrop(input_size, scale=(0.5, 1.)),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
