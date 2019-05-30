@@ -15,6 +15,8 @@ import time
 import os
 import copy
 
+np.set_printoptions(suppress=True)
+
 print("PyTorch Version: ",torch.__version__)
 print("Torchvision Version: ",torchvision.__version__)
 
@@ -87,6 +89,7 @@ def train_model(model, dataloaders, criterion, optim_scheduler, num_epochs, devi
                     i, dataloaders[phase].dataset.dataset.classes[i], confusion_matrix[i,i],
                     confusion_matrix[i].sum(), 100.*confusion_matrix[i,i]/confusion_matrix[i].sum()
                 ))
+            print(confusion_matrix)
 
             # deep copy the model
             if phase == 'val' and epoch_acc > best_acc:
