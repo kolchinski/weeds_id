@@ -21,11 +21,11 @@ print("Torchvision Version: ",torchvision.__version__)
 num_classes = 9
 input_size = 224
 data_dir = './deep_weeds_dataset'
-batch_size = 1024
 num_epochs = 1000
-tiny_run = False
+tiny_run = True
+batch_size = 8 if tiny_run else 1024
 
-def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
+def train_model(model, dataloaders, criterion, optim_scheduler, num_epochs, device):
     since = time.time()
 
     val_acc_history = []
@@ -55,7 +55,7 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
                 labels = labels.to(device)
 
                 # zero the parameter gradients
-                optimizer.zero_grad()
+                optim_scheduler.optimizer.zero_grad()
 
                 # forward
                 # track history if only in train
@@ -69,7 +69,7 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
                     # backward + optimize only if in training phase
                     if phase == 'train':
                         loss.backward()
-                        optimizer.step()
+                        lr_scheduler.optimizer.step()
 
                 # statistics
                 running_loss += loss.item() * inputs.size(0)
@@ -94,6 +94,7 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs, device):
                 best_model_wts = copy.deepcopy(model.state_dict())
             if phase == 'val':
                 val_acc_history.append(epoch_acc)
+                lr_scheduler.step(epoch_loss)
 
         print()
 
@@ -145,8 +146,8 @@ dataloaders = {x: torch.utils.data.DataLoader(
 # Detect if we have a GPU available
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-
-model = models.resnet50(pretrained=True)
+model_class = models.resnet18 if tiny_run else models.resnet101
+model = model_class(pretrained=True)
 
 # Freeze the model parameters
 for param in model.parameters():
@@ -160,11 +161,12 @@ model.to(device)
 print(model)
 
 params_to_train = [p for p in model.parameters() if p.requires_grad]
-opt = optim.Adam(params_to_train)
+opt = optim.Adam(params_to_train, lr=0.1)
+lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, verbose=True)
 print([p.shape for p in params_to_train])
 
 criterion = nn.CrossEntropyLoss()
 
 # Train and evaluate
 model, hist = train_model(model, dataloaders, criterion,
-                          opt, num_epochs, device)
+                          lr_scheduler, num_epochs, device)
