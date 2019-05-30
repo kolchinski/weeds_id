@@ -165,7 +165,7 @@ print(model)
 
 params_to_train = [p for p in model.parameters() if p.requires_grad]
 opt = optim.Adam(params_to_train, lr=0.1)
-lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, verbose=True)
+lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, factor=0.5, patience=5, verbose=True)
 print([p.shape for p in params_to_train])
 
 criterion = nn.CrossEntropyLoss()
