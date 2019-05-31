@@ -1,7 +1,6 @@
 import torch.nn as nn
 import torch.optim as optim
 
-import constants
 from util import train_model
 
 
@@ -22,7 +21,7 @@ class FinetunedResnet:
         self.num_classes = num_classes
         self.resnet_class = resnet_class
 
-    def train(self, dataloaders, lr, max_epochs):
+    def train(self, dataloaders, lr, max_epochs, print_log_file, loss_log_file):
         params_to_train = [p for p in self.model.parameters() if p.requires_grad]
         opt = optim.Adam(params_to_train, lr=lr)
         lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, factor=0.5, patience=5, verbose=True) #TODO: parametrize, try cos
@@ -31,7 +30,8 @@ class FinetunedResnet:
         criterion = nn.CrossEntropyLoss()
 
         model, hist = train_model(self.model, dataloaders, criterion,
-                          lr_scheduler, max_epochs, self.device, self.num_classes)
+                                  lr_scheduler, max_epochs, self.device, self.num_classes,
+                                  print_log_file, loss_log_file)
 
         return model
 

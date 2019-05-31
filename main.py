@@ -1,13 +1,10 @@
-#Code adapted from PyTorch fine tuning tutorial at
-#https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html
-
 from __future__ import print_function
 from __future__ import division
 import argparse
+import os
+from datetime import datetime
 
 import torch
-import torch.nn as nn
-import torch.optim as optim
 import numpy as np
 import torchvision
 from torchvision import datasets, models, transforms
@@ -28,13 +25,22 @@ parser.add_argument("--augment_data", action='store_true', help="Perform data au
 
 
 def main():
-    print("PyTorch Version: ",torch.__version__)
-    print("Torchvision Version: {}\n\n".format(torchvision.__version__))
+    log_dir = os.path.join(
+        os.getcwd(),
+        'logs',
+        datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+    os.makedirs(log_dir)
+
+    print_log_file = open(os.path.join(log_dir, 'print_log.txt'), 'w', buffering=1)
+    loss_log_file = open(os.path.join(log_dir, 'loss_and_accuracy_log.txt'), 'w', buffering=1)
+
+    print("PyTorch Version: ",torch.__version__, file=print_log_file)
+    print("Torchvision Version: {}\n\n".format(torchvision.__version__), file=print_log_file)
 
     args = parser.parse_args()
     for k,v in vars(args).items():
-        print(k,v)
-    print('\n\n')
+        print(k,v, file=print_log_file)
+    print('\n\n', file=print_log_file)
 
     # Detect if we have a GPU available
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -48,7 +54,10 @@ def main():
                                             max_num_pts=args.max_num_pts)
 
     resnet = FinetunedResnet(model_class, constants.NUM_CLASSES, device)
-    resnet.train(dataloaders, args.init_lr, args.max_epochs)
+    resnet.train(dataloaders, args.init_lr, args.max_epochs, print_log_file, loss_log_file)
+
+    loss_log_file.close()
+    print_log_file.close()
 
 
 

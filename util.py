@@ -1,11 +1,15 @@
 
 import copy
-import numpy as np
 import time
+
+import numpy as np
 import torch
 
 
-def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device, num_classes):
+# Code adapted from PyTorch fine tuning tutorial at
+# https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html
+def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device, num_classes,
+                print_log_file, loss_log_file):
     since = time.time()
 
     val_acc_history = []
@@ -14,8 +18,8 @@ def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device,
     best_acc = 0.0
 
     for epoch in range(num_epochs):
-        print('Epoch {}/{}'.format(epoch, num_epochs - 1))
-        print('-' * 10)
+        print('Epoch {}/{}'.format(epoch, num_epochs - 1), file=print_log_file)
+        print('-' * 10, file=print_log_file)
 
         # Each epoch has a training and validation phase
         for phase in ['train', 'val']:
@@ -60,14 +64,14 @@ def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device,
             epoch_loss = running_loss / len(dataloaders[phase].dataset)
             epoch_acc = running_corrects.double() / len(dataloaders[phase].dataset)
 
-            print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
+            print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc), file=print_log_file)
 
             for i in range(num_classes):
                 print('Class {} ({}): Accuracy {}/{} ({}%)'.format(
                     i, dataloaders[phase].dataset.dataset.classes[i], confusion_matrix[i,i],
                     confusion_matrix[i].sum(), 100.*confusion_matrix[i,i]/confusion_matrix[i].sum()
-                ))
-            print(confusion_matrix)
+                ), file=print_log_file)
+            print(confusion_matrix, file=print_log_file)
 
             # deep copy the model
             if phase == 'val' and epoch_acc > best_acc:
@@ -76,12 +80,16 @@ def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device,
             if phase == 'val':
                 val_acc_history.append(epoch_acc)
                 lr_scheduler.step(epoch_loss)
+                loss_log_file.write('{},{}\n'.format(loss, epoch_acc))
+            else:
+                loss_log_file.write('{},{},{},'.format(epoch, loss, epoch_acc))
 
-        print()
+        print(file=print_log_file)
 
     time_elapsed = time.time() - since
-    print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
-    print('Best val Acc: {:4f}'.format(best_acc))
+
+    print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60), file=print_log_file)
+    print('Best val Acc: {:4f}'.format(best_acc), file=print_log_file)
 
     # load best model weights
     model.load_state_dict(best_model_wts)
