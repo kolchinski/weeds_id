@@ -54,10 +54,8 @@ def train_model(model, dataloaders, criterion, optim_scheduler, num_epochs, devi
 
             # Iterate over data.
             for inputs, labels in dataloaders[phase]:
-                one_hot_labels = torch.zeros(len(labels), num_classes).scatter_(1, labels.unsqueeze(1), 1.)
                 inputs = inputs.to(device)
                 labels = labels.to(device)
-                one_hot_labels = one_hot_labels.to(device)
 
                 # zero the parameter gradients
                 optim_scheduler.optimizer.zero_grad()
@@ -67,7 +65,7 @@ def train_model(model, dataloaders, criterion, optim_scheduler, num_epochs, devi
                 with torch.set_grad_enabled(phase == 'train'):
                     # Get model outputs and calculate loss
                     outputs = model(inputs)
-                    loss = criterion(outputs, one_hot_labels)
+                    loss = criterion(outputs, labels)
 
                     _, preds = torch.max(outputs, 1)
 
@@ -115,9 +113,8 @@ def train_model(model, dataloaders, criterion, optim_scheduler, num_epochs, devi
 
 data_transforms = {
     'train': transforms.Compose([
-        transforms.ColorJitter(brightness=.25, contrast=.25, saturation=.25, hue=0.1),
-        transforms.RandomGrayscale(),
-        transforms.RandomAffine(degrees=180, translate=(0.2, 0.2), shear=(-30,30)),
+        #transforms.ColorJitter(brightness=.25, contrast=.25, saturation=.25, hue=0.1),
+        #transforms.RandomAffine(degrees=180, translate=(0.2, 0.2), shear=(-30,30)),
         transforms.RandomResizedCrop(input_size, scale=(0.5, 1.)),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
@@ -174,8 +171,7 @@ opt = optim.Adam(params_to_train, lr=0.1)
 lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, factor=0.5, patience=5, verbose=True)
 print([p.shape for p in params_to_train])
 
-#criterion = nn.CrossEntropyLoss()
-criterion = nn.BCEWithLogitsLoss()
+criterion = nn.CrossEntropyLoss()
 
 # Train and evaluate
 model, hist = train_model(model, dataloaders, criterion,
