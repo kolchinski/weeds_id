@@ -22,17 +22,20 @@ class FinetunedResnet:
         self.num_classes = num_classes
         self.resnet_class = resnet_class
 
-    def train(self, dataloaders, lr, max_epochs, print_log_file, loss_log_file):
+    def train(self, dataloaders, lr, max_epochs, save_every,
+              log_dir, print_log_file, loss_log_file):
+
         params_to_train = [p for p in self.model.parameters() if p.requires_grad]
         opt = optim.Adam(params_to_train, lr=lr)
-        lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, factor=0.5, patience=16, verbose=True) #TODO: parametrize, try cos
-        print([p.shape for p in params_to_train])
+        #lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, factor=0.5, patience=16, verbose=True)
+        lr_scheduler = optim.lr_scheduler.CosineAnnealingLR(opt, T_max=max_epochs)
+        #print([p.shape for p in params_to_train])
 
         criterion = nn.CrossEntropyLoss()
 
-        model, hist = train_model(self.model, dataloaders, criterion,
-                                  lr_scheduler, max_epochs, self.device, self.num_classes,
-                                  print_log_file, loss_log_file)
+        model, hist = train_model(self.model, dataloaders, criterion, lr_scheduler,
+                                  max_epochs, self.device, self.num_classes, save_every,
+                                  log_dir, print_log_file, loss_log_file)
 
         return model
 

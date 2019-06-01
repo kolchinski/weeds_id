@@ -9,7 +9,8 @@ import torch
 # Code adapted from PyTorch fine tuning tutorial at
 # https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html
 def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device, num_classes,
-                print_log_file, loss_log_file):
+                save_every, log_dir, print_log_file, loss_log_file):
+
     since = time.time()
 
     val_acc_history = []
@@ -79,12 +80,15 @@ def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device,
                 best_model_wts = copy.deepcopy(model.state_dict())
             if phase == 'val':
                 val_acc_history.append(epoch_acc)
-                lr_scheduler.step(epoch_loss)
+                #lr_scheduler.step(epoch_loss) for reduce-on-plateau LR Scheduler
+                lr_scheduler.step()
                 loss_log_file.write('{},{}\n'.format(loss, epoch_acc))
             else:
                 loss_log_file.write('{},{},{},'.format(epoch, loss, epoch_acc))
 
         print(file=print_log_file)
+        if epoch % save_every == 0:
+            torch.save(model.state_dict(), log_dir + '/model_dict_{}.pth'.format(epoch))
 
     time_elapsed = time.time() - since
 

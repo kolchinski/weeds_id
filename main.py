@@ -17,8 +17,9 @@ np.set_printoptions(suppress=True)
 
 parser = argparse.ArgumentParser(description='Tell apart weeds with computer vision')
 parser.add_argument("--init_lr", default=.01, type=float, help="Which learning rate to start with")
-parser.add_argument("--max_epochs", default=1000, type=int, help="How many epochs to run for")
+parser.add_argument("--max_epochs", default=100, type=int, help="How many epochs to run for")
 parser.add_argument("--batch_size", default=1024, type=int, help="Batch size")
+parser.add_argument("--save_every", default=5, type=int, help="Save every _this many_ epochs")
 parser.add_argument("--max_num_pts", default=None, type=int, help="Reduce the train and val set to this many points")
 parser.add_argument("--model", default='resnet50', type=str, help="Which model to train on the data")
 parser.add_argument("--augment_data", action='store_true', help="Perform data augmentation on the training set?")
@@ -55,7 +56,8 @@ def main():
                                             max_num_pts=args.max_num_pts)
 
     resnet = FinetunedResnet(model_class, args.freeze_resnet, constants.NUM_CLASSES, device)
-    resnet.train(dataloaders, args.init_lr, args.max_epochs, print_log_file, loss_log_file)
+    resnet.train(dataloaders, args.init_lr, args.max_epochs, args.save_every,
+                 log_dir, print_log_file, loss_log_file)
 
     loss_log_file.close()
     print_log_file.close()
