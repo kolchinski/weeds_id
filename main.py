@@ -16,14 +16,18 @@ from models.finetuned_resnet import FinetunedResnet
 np.set_printoptions(suppress=True)
 
 parser = argparse.ArgumentParser(description='Tell apart weeds with computer vision')
-parser.add_argument("--init_lr", default=.01, type=float, help="Which learning rate to start with")
-parser.add_argument("--max_epochs", default=100, type=int, help="How many epochs to run for")
-parser.add_argument("--batch_size", default=1024, type=int, help="Batch size")
+parser.add_argument("--init_lr", default=1e-2, type=float, help="Which learning rate to start with")
+parser.add_argument("--init_finetune_lr", default=1e-4, type=float,
+                    help="Which learning rate to start with for the whole-model finetuning phase")
+parser.add_argument("--max_epochs", default=50, type=int,
+                    help="How many epochs to run for, per phase (last layer, whole model)")
+parser.add_argument("--batch_size", default=128, type=int, help="Batch size")
 parser.add_argument("--save_every", default=5, type=int, help="Save every _this many_ epochs")
 parser.add_argument("--max_num_pts", default=None, type=int, help="Reduce the train and val set to this many points")
 parser.add_argument("--model", default='resnet50', type=str, help="Which model to train on the data")
+parser.add_argument("--pretrained_path", default=None, type=str,
+                    help="Start finetuning from a previously saved model? If so, provide the path here")
 parser.add_argument("--augment_data", action='store_true', help="Perform data augmentation on the training set?")
-parser.add_argument("--freeze_resnet", action='store_true', help="Freeze parameters of pretrained model?")
 
 
 def main():
@@ -55,9 +59,16 @@ def main():
                                             augment_data=args.augment_data,
                                             max_num_pts=args.max_num_pts)
 
-    resnet = FinetunedResnet(model_class, args.freeze_resnet, constants.NUM_CLASSES, device)
-    resnet.train(dataloaders, args.init_lr, args.max_epochs, args.save_every,
-                 log_dir, print_log_file, loss_log_file)
+    resnet = FinetunedResnet(model_class, constants.NUM_CLASSES, device)
+
+    if args.pretrained_path:
+        resnet.finetune_whole_model(dataloaders, args.init_finetune_lr,
+                                    args.max_epochs, args.save_every,
+                                    log_dir, print_log_file, loss_log_file)
+    else:
+        resnet.train_from_scratch(dataloaders, args.init_lr, args.init_finetune_lr,
+                                  args.max_epochs, args.save_every,
+                                  log_dir, print_log_file, loss_log_file)
 
     loss_log_file.close()
     print_log_file.close()

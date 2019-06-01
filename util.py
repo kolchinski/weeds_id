@@ -8,8 +8,10 @@ import torch
 
 # Code adapted from PyTorch fine tuning tutorial at
 # https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html
+# Epoch offset is for when we have multiple phases, to keep track of the overall epoch
 def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device, num_classes,
-                save_every, log_dir, print_log_file, loss_log_file):
+                save_every, log_dir, print_log_file, loss_log_file,
+                epoch_offset=0):
 
     since = time.time()
 
@@ -84,11 +86,11 @@ def train_model(model, dataloaders, criterion, lr_scheduler, num_epochs, device,
                 lr_scheduler.step()
                 loss_log_file.write('{},{}\n'.format(loss, epoch_acc))
             else:
-                loss_log_file.write('{},{},{},'.format(epoch, loss, epoch_acc))
+                loss_log_file.write('{},{},{},'.format(epoch + epoch_offset, loss, epoch_acc))
 
         print(file=print_log_file)
-        if epoch % save_every == 0:
-            torch.save(model.state_dict(), log_dir + '/model_dict_{}.pth'.format(epoch))
+        if (epoch + 1) % save_every == 0:
+            torch.save(model.state_dict(), log_dir + '/model_dict_{}.pth'.format(epoch + epoch_offset))
 
     time_elapsed = time.time() - since
 
