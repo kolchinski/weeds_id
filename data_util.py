@@ -25,7 +25,7 @@ weeds_to_imagenet_transforms = [
 def get_dataloaders(batch_size, augment_data=False, max_num_pts=None):
 
     train_transforms = weeds_to_imagenet_transforms
-    if augment_data: train_transforms = augment_data + train_transforms
+    if augment_data: train_transforms = augment_transforms + train_transforms
 
     data_transforms = {
         'train': transforms.Compose(train_transforms),
