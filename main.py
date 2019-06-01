@@ -22,6 +22,7 @@ parser.add_argument("--batch_size", default=1024, type=int, help="Batch size")
 parser.add_argument("--max_num_pts", default=None, type=int, help="Reduce the train and val set to this many points")
 parser.add_argument("--model", default='resnet50', type=str, help="Which model to train on the data")
 parser.add_argument("--augment_data", action='store_true', help="Perform data augmentation on the training set?")
+parser.add_argument("--freeze_resnet", action='store_true', help="Freeze parameters of pretrained model?")
 
 
 def main():
@@ -53,7 +54,7 @@ def main():
                                             augment_data=args.augment_data,
                                             max_num_pts=args.max_num_pts)
 
-    resnet = FinetunedResnet(model_class, constants.NUM_CLASSES, device)
+    resnet = FinetunedResnet(model_class, args.freeze_resnet, constants.NUM_CLASSES, device)
     resnet.train(dataloaders, args.init_lr, args.max_epochs, print_log_file, loss_log_file)
 
     loss_log_file.close()
