@@ -1,8 +1,40 @@
+import types
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
 
 from util import train_model
+
+
+
+def forward_spatial_first(self, x):
+    x = self.conv1(x)
+    x = self.bn1(x)
+    x = self.relu(x)
+    x = self.maxpool(x)
+
+    x = self.layer1(x)
+    x = self.layer2(x)
+    x = self.layer3(x)
+    x = self.layer4(x)
+
+    # Change from BxCxHxW to BxHxWxC, where C is number of channels
+    x = x.permute(0,2,3,1)
+
+    #BxHxWxC -> BxHxWxN, where N is number of output classes
+    x = self.fc(x)
+
+    # Go back from BxHxWxN to BxNxHxW
+    x = x.permute(0, 3, 1, 2)
+
+    # Go from BxNxHxW to BxNx1x1
+    x = self.avgpool(x)
+
+    # and to BxN
+    x = x.reshape(x.size(0), -1)
+
+    return x
 
 
 class FinetunedResnet:
@@ -14,6 +46,9 @@ class FinetunedResnet:
             param.requires_grad = False
         last_layer_in_size = model.fc.in_features
         model.fc = nn.Linear(last_layer_in_size, num_classes)
+
+        # Reorder the pretrained model's last two layers
+        model.forward = types.MethodType(forward_spatial_first, model)
 
         model.to(device)
 
@@ -38,7 +73,7 @@ class FinetunedResnet:
 
         model, hist = self.finetune_whole_model(dataloaders, finetune_lr, max_epochs, save_every,
                                                 log_dir, print_log_file, loss_log_file)
-        return model
+        return model, hist
 
     def finetune_whole_model(self, dataloaders, lr, max_epochs, save_every,
                              log_dir, print_log_file, loss_log_file,
@@ -62,6 +97,6 @@ class FinetunedResnet:
                                   log_dir, print_log_file, loss_log_file,
                                   epoch_offset=max_epochs)
 
-        return model
+        return model, hist
 
 

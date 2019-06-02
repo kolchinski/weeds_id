@@ -17,7 +17,7 @@ np.set_printoptions(suppress=True)
 
 parser = argparse.ArgumentParser(description='Tell apart weeds with computer vision')
 parser.add_argument("--init_lr", default=1e-2, type=float, help="Which learning rate to start with")
-parser.add_argument("--init_finetune_lr", default=1e-4, type=float,
+parser.add_argument("--init_finetune_lr", default=1e-5, type=float,
                     help="Which learning rate to start with for the whole-model finetuning phase")
 parser.add_argument("--max_epochs", default=50, type=int,
                     help="How many epochs to run for, per phase (last layer, whole model)")
@@ -62,11 +62,11 @@ def main():
     resnet = FinetunedResnet(model_class, constants.NUM_CLASSES, device)
 
     if args.pretrained_path:
-        resnet.finetune_whole_model(dataloaders, args.init_finetune_lr,
+        model, hist = resnet.finetune_whole_model(dataloaders, args.init_finetune_lr,
                                     args.max_epochs, args.save_every,
                                     log_dir, print_log_file, loss_log_file)
     else:
-        resnet.train_from_scratch(dataloaders, args.init_lr, args.init_finetune_lr,
+        model, hist = resnet.train_from_scratch(dataloaders, args.init_lr, args.init_finetune_lr,
                                   args.max_epochs, args.save_every,
                                   log_dir, print_log_file, loss_log_file)
 
