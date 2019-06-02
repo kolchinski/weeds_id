@@ -9,8 +9,8 @@ import constants
 
 
 augment_transforms = [
-            #transforms.ColorJitter(brightness=.25, contrast=.25, saturation=.25, hue=0.1),
-            #transforms.RandomAffine(degrees=180, translate=(0.2, 0.2), shear=(-30,30)),
+            transforms.ColorJitter(brightness=.25, contrast=.25, saturation=.25, hue=0.1),
+            transforms.RandomAffine(degrees=180, translate=(0.2, 0.2), shear=(-30,30)),
             transforms.RandomResizedCrop(constants.INPUT_SIZE, scale=(0.5, 1.)),
             transforms.RandomHorizontalFlip(),
         ]

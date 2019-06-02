@@ -53,6 +53,7 @@ def main():
 
     if args.model == 'resnet50': model_class = models.resnet50
     elif args.model == 'resnet18': model_class = models.resnet18
+    elif args.model == 'resnet101': model_class = models.resnet101
     else: raise Exception('Invalid model name')
 
     dataloaders = data_util.get_dataloaders(batch_size=args.batch_size,
