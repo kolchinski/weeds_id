@@ -8,7 +8,7 @@ from util import train_model
 
 
 
-def forward_spatial_first(self, x):
+def forward_spatial_first(self, x, return_grid=False):
     x = self.conv1(x)
     x = self.bn1(x)
     x = self.relu(x)
@@ -27,6 +27,7 @@ def forward_spatial_first(self, x):
 
     # Go back from BxHxWxN to BxNxHxW
     x = x.permute(0, 3, 1, 2)
+    if return_grid: return(x)
 
     # Go from BxNxHxW to BxNx1x1
     x = self.avgpool(x)
