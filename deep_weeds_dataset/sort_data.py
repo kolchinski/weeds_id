@@ -12,6 +12,7 @@ CLASS_NAMES = ['chinee_apple',
                'negatives']
 
 
+#for set_name in ('test',):
 for set_name in ('train', 'val',):
     with open('labels/' + set_name + '_subset0.csv') as f:
         lines = f.readlines()[1:]
